@@ -14,8 +14,17 @@ module.exports = {
         baseUrl: `gilded-strobes.000webhostapp.com`,
         protocol: `https`,
         hostingWPCOM: false,
-        useACF: false,
-      }
-    }
+        useACF: true,
+      },
+    },
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-sharp",
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images/`,
+      },
+    },
   ],
 }
