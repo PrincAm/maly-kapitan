@@ -7,24 +7,24 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        /*
-         * The base URL of the WordPress site without the trailingslash and the protocol. This is required.
-         * Example : 'dev-gatbsyjswp.pantheonsite.io' or 'www.example-site.com'
-         */
         baseUrl: `gilded-strobes.000webhostapp.com`,
         protocol: `https`,
-        hostingWPCOM: false,
-        useACF: true,
+        plugins: [
+          {
+            resolve: `gatsby-wordpress-inline-images`,
+            options: {
+              baseUrl: `gilded-strobes.000webhostapp.com`,
+              protocol: `https`,
+              quality: 90,
+              maxWidth: 550,
+              tracedSVG: true,
+            },
+          },
+        ],
       },
     },
+    "gatsby-image",
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images/`,
-      },
-    },
   ],
 }
