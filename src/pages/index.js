@@ -1,6 +1,8 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 
+import Header from "../components/header"
+
 export default ({ data }) => {
   return (
     <>
@@ -8,6 +10,15 @@ export default ({ data }) => {
       {data.allWordpressPost.edges.map(({ node }) => (
         <div key={node.id}>
           <h1>{node.title}</h1>
+          <div dangerouslySetInnerHTML={{ __html: node.content }} />
+        </div>
+      ))}
+      <h1>Pages</h1>
+      {data.allWordpressPage.edges.map(({ node }) => (
+        <div key={node.id}>
+          <Link to={node.slug}>
+            <h2>{node.title}</h2>
+          </Link>
           <div dangerouslySetInnerHTML={{ __html: node.content }} />
         </div>
       ))}
@@ -20,31 +31,23 @@ export const pageQuery = graphql`
     allWordpressPost {
       edges {
         node {
-          title
-          content
           id
+          slug
+          status
+          template
+          format
+        }
+      }
+    }
+    allWordpressPage {
+      edges {
+        node {
+          id
+          content
+          slug
+          title
         }
       }
     }
   }
 `
-
-// allWordpressPost {
-//   edges {
-//     node {
-//       title
-//       excerpt
-//       slug
-//       content
-//       featured_media {
-//         localFile {
-//           childImageSharp {
-//             resolutions(width: 400, height: 600) {
-//               ...GatsbyImageSharpResolutions_withWebp
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
