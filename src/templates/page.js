@@ -1,15 +1,20 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
 
+import Layout from "../components/layout"
+import Header from "../components/header"
+import SEO from "../components/seo"
+
 class Page extends Component {
   render() {
     const StaticPage = this.props.data.wordpressPage
 
     return (
-      <>
+      <Layout>
+        <SEO title={StaticPage.title} />
         <h1>{StaticPage.title}</h1>
-        <div>{StaticPage.content}</div>
-      </>
+        <div dangerouslySetInnerHTML={{ __html: StaticPage.content }} />
+      </Layout>
     )
   }
 }
