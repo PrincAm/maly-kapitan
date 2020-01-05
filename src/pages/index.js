@@ -3,7 +3,6 @@ import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { node } from "prop-types"
 
 export const HOME_PAGE_SLUG = "home"
 
@@ -12,15 +11,14 @@ export default ({ data }) => {
     ({ node }) => node.slug === HOME_PAGE_SLUG
   )
   return (
-    <Layout>
+    <Layout homePage={homePage}>
       <SEO title="Home" />
-      <div dangerouslySetInnerHTML={{ __html: homePage.node.content }} />
       <h1>Posts</h1>
       {data.allWordpressPost.edges.map(({ node }) => (
         <div key={node.id}>
-          <Link to={`/post/${node.slug}`}>
-            <h3>{node.title}</h3>
-          </Link>
+          <h3>
+            <Link to={`/post/${node.slug}`}>{node.title}</Link>
+          </h3>
           <div dangerouslySetInnerHTML={{ __html: node.content }} />
         </div>
       ))}

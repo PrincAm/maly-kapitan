@@ -3,7 +3,6 @@ import { graphql } from "gatsby"
 import PropTypes from "prop-types"
 
 import Layout from "../components/layout"
-import Header from "../components/header"
 
 class Post extends Component {
   render() {
