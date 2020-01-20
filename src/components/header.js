@@ -9,9 +9,10 @@ import logo from "../images/gatsby-icon.png"
 
 const HeaderContainer = styled.header`
   margin-bottom: 1.45rem;
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 1;
+  width: 100%;
 `
 
 const Menu = styled.div`

@@ -1,3 +1,5 @@
+const path = require(`path`)
+
 module.exports = {
   siteMetadata: {
     title: `An example to learn how to source data form WordPress`,
@@ -21,6 +23,13 @@ module.exports = {
             },
           },
         ],
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: path.join(__dirname, `src`, `images`),
       },
     },
     "gatsby-image",
