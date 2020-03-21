@@ -5,6 +5,7 @@ import styled, { createGlobalStyle } from "styled-components"
 
 import Header from "./header"
 import Welcome from "./welcome"
+import Footer from "./footer"
 
 const GlobalStyle = createGlobalStyle`
     body {
@@ -16,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
 const LayoutInner = styled.div`
   margin: 0 auto;
   max-width: 960px;
-  padding: 0px 1.0875rem 1.45rem;
+  padding-right: 1.0875rem;
 `
 
 const Layout = ({ homePage, children }) => {
@@ -37,11 +38,7 @@ const Layout = ({ homePage, children }) => {
       {homePage && <Welcome content={homePage.node.content} />}
       <LayoutInner>
         <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
+        <Footer />
       </LayoutInner>
     </>
   )
