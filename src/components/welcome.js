@@ -75,10 +75,10 @@ const Welcome = ({ content }) => {
       Tag="section"
       fluid={imageData}
       backgroundColor={`#040e18`}
-      title="gbitest"
-      id="gbitest"
+      title="maly-kapitan.cz"
+      id="maly-kapitan.cz"
       role="img"
-      aria-label="gbitest"
+      aria-label="black dog"
     >
       <WelcomeContainer>
         {trail.map(({ x, height, ...rest }, index) => (

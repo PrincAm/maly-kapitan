@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import PageExcerpt from "../components/pagePreview"
 
 export const HOME_PAGE_SLUG = "home"
 
@@ -13,14 +14,15 @@ export default ({ data }) => {
   return (
     <Layout homePage={homePage}>
       <SEO title="Home" />
-      <h1>Posts</h1>
+      <h1>Poslední příspěvky</h1>
       {data.allWordpressPost.edges.map(({ node }) => (
-        <div key={node.id}>
-          <h3>
-            <Link to={`/post/${node.slug}`}>{node.title}</Link>
-          </h3>
-          <div dangerouslySetInnerHTML={{ __html: node.content }} />
-        </div>
+        <PageExcerpt
+          key={node.id}
+          excerpt={node.excerpt}
+          date={node.date}
+          title={node.title}
+          slug={node.slug}
+        />
       ))}
     </Layout>
   )
@@ -38,6 +40,8 @@ export const pageQuery = graphql`
           status
           template
           format
+          excerpt
+          date(formatString: "DD.MM.YYYY")
         }
       }
     }

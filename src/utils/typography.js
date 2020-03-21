@@ -12,8 +12,11 @@ twinPeaksTheme.bodyFontFamily = ["Lato", "sans-serif"]
 
 twinPeaksTheme.overrideThemeStyles = () => {
   return {
+    "p, h1, h2, h3, h4, h5, h6, b": {
+      color: "#363636",
+    },
     a: {
-      color: "#0f4c75",
+      color: "#4f868e",
       boxShadow: "none",
       backgroundImage: "none",
     },

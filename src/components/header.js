@@ -3,7 +3,6 @@ import PropTypes from "prop-types"
 import React from "react"
 import styled from "styled-components"
 
-// import { rhythm } from "../utils/typography"
 import { HOME_PAGE_SLUG } from "../pages/index"
 import logo from "../images/gatsby-icon.png"
 
@@ -30,6 +29,7 @@ const Links = styled.div`
 const LinkContainer = styled.div`
   margin-right: 0.75rem;
   a {
+    color: #363636;
     text-shadow: none;
   }
   h6 {
@@ -73,7 +73,7 @@ const Header = ({ siteTitle }) => {
               <h6>
                 <Link
                   to={node.slug === HOME_PAGE_SLUG ? "/" : node.slug}
-                  activeStyle={{ color: "#3282b8" }}
+                  activeStyle={{ color: "#4f868e" }}
                 >
                   {node.title}
                 </Link>
