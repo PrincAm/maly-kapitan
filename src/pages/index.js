@@ -3,7 +3,7 @@ import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import PageExcerpt from "../components/pagePreview"
+import PostPreview from "../components/postPreview"
 
 export const HOME_PAGE_SLUG = "home"
 
@@ -14,16 +14,6 @@ export default ({ data }) => {
   return (
     <Layout homePage={homePage}>
       <SEO title="Home" />
-      <h1>Poslední příspěvky</h1>
-      {data.allWordpressPost.edges.map(({ node }) => (
-        <PageExcerpt
-          key={node.id}
-          excerpt={node.excerpt}
-          date={node.date}
-          title={node.title}
-          slug={node.slug}
-        />
-      ))}
     </Layout>
   )
 }

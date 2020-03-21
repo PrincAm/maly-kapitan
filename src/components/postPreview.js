@@ -18,7 +18,7 @@ const Date = styled.div`
   margin-bottom: 0.5rem;
 `
 
-const PagePreview = ({ excerpt, date, title, slug }) => (
+const PostPreview = ({ excerpt, date, title, slug }) => (
   <Preview>
     <h3>
       <Link to={`/post/${slug}`}>{title}</Link>
@@ -30,4 +30,4 @@ const PagePreview = ({ excerpt, date, title, slug }) => (
   </Preview>
 )
 
-export default PagePreview
+export default PostPreview

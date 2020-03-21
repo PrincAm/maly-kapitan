@@ -5,6 +5,9 @@ import styled from "styled-components"
 import { useTrail, animated } from "react-spring"
 import BackgroundImage from "gatsby-background-image"
 
+import SEO from "./seo"
+import Posts from "./posts"
+
 const WelcomeContainer = styled.div`
   position: relative;
   width: 100%;
@@ -71,29 +74,35 @@ const Welcome = ({ content }) => {
     setTimeout(() => set(true), 300)
   })
   return (
-    <BackgroundImage
-      Tag="section"
-      fluid={imageData}
-      backgroundColor={`#040e18`}
-      title="maly-kapitan.cz"
-      id="maly-kapitan.cz"
-      role="img"
-      aria-label="black dog"
-    >
-      <WelcomeContainer>
-        {trail.map(({ x, height, ...rest }, index) => (
-          <Text
-            key={paragraphs[index]}
-            style={{
-              ...rest,
-              transform: x.interpolate(x => `translate3d(0,${x}px,0)`),
-            }}
-          >
-            <animated.div style={{ height }}>{paragraphs[index]}</animated.div>
-          </Text>
-        ))}
-      </WelcomeContainer>
-    </BackgroundImage>
+    <div>
+      <SEO title="Home" />
+      <BackgroundImage
+        Tag="section"
+        fluid={imageData}
+        backgroundColor={`#040e18`}
+        title="maly-kapitan.cz"
+        id="maly-kapitan.cz"
+        role="img"
+        aria-label="black dog"
+      >
+        <WelcomeContainer>
+          {trail.map(({ x, height, ...rest }, index) => (
+            <Text
+              key={paragraphs[index]}
+              style={{
+                ...rest,
+                transform: x.interpolate(x => `translate3d(0,${x}px,0)`),
+              }}
+            >
+              <animated.div style={{ height }}>
+                {paragraphs[index]}
+              </animated.div>
+            </Text>
+          ))}
+        </WelcomeContainer>
+      </BackgroundImage>
+      <Posts />
+    </div>
   )
 }
 
