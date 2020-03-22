@@ -15,9 +15,13 @@ const GlobalStyle = createGlobalStyle`
   `
 
 const LayoutInner = styled.div`
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
   max-width: 960px;
-  padding-right: 1.0875rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.0875rem 0;
 `
 
 const Layout = ({ homePage, children }) => {
@@ -32,7 +36,7 @@ const Layout = ({ homePage, children }) => {
   `)
 
   return (
-    <>
+    <div>
       <GlobalStyle />
       <Header siteTitle={data.site.siteMetadata.title} />
       {homePage && <Welcome content={homePage.node.content} />}
@@ -40,7 +44,7 @@ const Layout = ({ homePage, children }) => {
         <main>{children}</main>
         <Footer />
       </LayoutInner>
-    </>
+    </div>
   )
 }
 

@@ -12,7 +12,7 @@ const PostsInner = styled.div`
   padding-right: 1.0875rem;
 `
 
-const Posts = () => {
+const Posts = ({ title }) => {
   const data = useStaticQuery(graphql`
     query {
       allWordpressPost {
@@ -34,7 +34,7 @@ const Posts = () => {
   `)
   return (
     <PostsInner>
-      <h1>Poslední příspěvky</h1>
+      <h1>{title}</h1>
       {data.allWordpressPost.edges.map(({ node }) => (
         <PostPreview
           key={node.id}

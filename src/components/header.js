@@ -60,15 +60,37 @@ const Header = ({ siteTitle }) => {
     }
   `)
 
+  const { node: homeNode } = data.allWordpressPage.edges.find(
+    ({ node }) => node.slug === HOME_PAGE_SLUG
+  )
+
+  const menuNodes = data.allWordpressPage.edges.filter(
+    ({ node }) => node.slug !== HOME_PAGE_SLUG
+  )
+
   return (
     <HeaderContainer>
       <Menu>
         <LogoContainer>
           <Logo src={logo} />
-          <b>maly-kapitan</b>
+          <b>malý kapitán</b>
         </LogoContainer>
         <Links>
-          {data.allWordpressPage.edges.map(({ node }) => (
+          <LinkContainer>
+            <h6>
+              <Link to="/" activeStyle={{ color: "#4f868e" }}>
+                {homeNode.title}
+              </Link>
+            </h6>
+          </LinkContainer>
+          <LinkContainer>
+            <h6>
+              <Link to="/blog" activeStyle={{ color: "#4f868e" }}>
+                Blog
+              </Link>
+            </h6>
+          </LinkContainer>
+          {menuNodes.map(({ node }) => (
             <LinkContainer key={node.id}>
               <h6>
                 <Link

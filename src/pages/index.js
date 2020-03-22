@@ -20,21 +20,6 @@ export default ({ data }) => {
 
 export const pageQuery = graphql`
   query {
-    allWordpressPost {
-      edges {
-        node {
-          id
-          content
-          slug
-          title
-          status
-          template
-          format
-          excerpt
-          date(formatString: "DD.MM.YYYY")
-        }
-      }
-    }
     allWordpressPage {
       edges {
         node {

@@ -23,6 +23,26 @@ const Content = styled.div`
   font-size: 3rem;
 `
 
+const Text = styled(animated.div)`
+  position: relative;
+  width: 100%;
+  height: 120px;
+  line-height: 120px;
+  color: palevioletred;
+  font-size: 5em;
+  font-weight: 800;
+  text-transform: uppercase;
+  will-change: transform, opacity;
+  overflow: hidden;
+  div {
+    overflow: hidden;
+  }
+`
+
+const Background = styled(BackgroundImage)`
+  margin-bottom: 2rem;
+`
+
 const Welcome = ({ content }) => {
   const { desktop } = useStaticQuery(
     graphql`
@@ -45,22 +65,6 @@ const Welcome = ({ content }) => {
     .filter(paragraph => paragraph.match(/[a-zA-Z0-9_]/g)) // remove empty strings
   const config = { mass: 5, tension: 1000, friction: 300 }
 
-  const Text = styled(animated.div)`
-    position: relative;
-    width: 100%;
-    height: 120px;
-    line-height: 120px;
-    color: palevioletred;
-    font-size: 5em;
-    font-weight: 800;
-    text-transform: uppercase;
-    will-change: transform, opacity;
-    overflow: hidden;
-    div {
-      overflow: hidden;
-    }
-  `
-
   const [toggle, set] = useState(false)
   const trail = useTrail(paragraphs.length, {
     config,
@@ -76,7 +80,7 @@ const Welcome = ({ content }) => {
   return (
     <div>
       <SEO title="Home" />
-      <BackgroundImage
+      <Background
         Tag="section"
         fluid={imageData}
         backgroundColor={`#040e18`}
@@ -100,8 +104,8 @@ const Welcome = ({ content }) => {
             </Text>
           ))}
         </WelcomeContainer>
-      </BackgroundImage>
-      <Posts />
+      </Background>
+      <Posts title="Poslední příspěvky" />
     </div>
   )
 }
