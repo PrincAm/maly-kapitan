@@ -1,6 +1,7 @@
 import PropTypes from "prop-types"
 import React from "react"
 import styled from "styled-components"
+import { Link } from "gatsby"
 
 import logo from "../images/gatsby-icon.png"
 
@@ -27,14 +28,19 @@ const DivPlaceholder = styled.div`
 
 const Footer = () => (
   <FooterInner>
-    <Copyright>© 2020, maly-kapitan.cz</Copyright>
-    <Logo src={logo} />
-    <div>
-      made by{" "}
-      <a href="https://www.adamblazek.com/" target="_blank">
-        adam blažek
-      </a>
-    </div>
+    <Copyright>
+      © 2020, malykapitan.cz
+      <div>
+        made by{" "}
+        <a href="https://www.adamblazek.com/" target="_blank">
+          adam blažek
+        </a>
+      </div>
+    </Copyright>
+    <Link to="">
+      <Logo src={logo} />
+    </Link>
+    <div></div>
   </FooterInner>
 )
 

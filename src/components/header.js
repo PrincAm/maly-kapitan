@@ -43,6 +43,7 @@ const Logo = styled.img`
 const LogoContainer = styled.div`
   display: flex;
   align-items: center;
+  text-shadow: none;
 `
 
 const Header = ({ siteTitle }) => {
@@ -71,10 +72,12 @@ const Header = ({ siteTitle }) => {
   return (
     <HeaderContainer>
       <Menu>
-        <LogoContainer>
-          <Logo src={logo} />
-          <b>malý kapitán</b>
-        </LogoContainer>
+        <Link to="/">
+          <LogoContainer>
+            <Logo src={logo} />
+            <b>malý kapitán</b>
+          </LogoContainer>
+        </Link>
         <Links>
           <LinkContainer>
             <h6>

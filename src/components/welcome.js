@@ -18,7 +18,7 @@ const WelcomeContainer = styled.div`
 
 const Content = styled.div`
   margin: 0 auto;
-  max-width: 960px;
+  max-width: 60rem;
   padding: 5rem 0;
   font-size: 3rem;
 `
@@ -26,8 +26,8 @@ const Content = styled.div`
 const Text = styled(animated.div)`
   position: relative;
   width: 100%;
-  height: 120px;
-  line-height: 120px;
+  height: 7.5rem;
+  line-height: 7.5rem;
   color: palevioletred;
   font-size: 5em;
   font-weight: 800;
@@ -84,8 +84,8 @@ const Welcome = ({ content }) => {
         Tag="section"
         fluid={imageData}
         backgroundColor={`#040e18`}
-        title="maly-kapitan.cz"
-        id="maly-kapitan.cz"
+        title="malykapitan.cz"
+        id="malykapitan.cz"
         role="img"
         aria-label="black dog"
       >
