@@ -38,7 +38,7 @@ const LinkContainer = styled.div`
 `
 const Logo = styled.img`
   height: 2rem;
-  margin: 0.5rem;
+  margin: 0.5rem 0.5rem 0.5rem 0;
 `
 const LogoContainer = styled.div`
   display: flex;

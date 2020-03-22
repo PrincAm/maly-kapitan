@@ -21,7 +21,7 @@ const LayoutInner = styled.div`
   min-height: 100vh;
   max-width: 960px;
   margin: 0 auto;
-  padding: 1.5rem 1.0875rem 0;
+  padding-top: 1.5rem;
 `
 
 const Layout = ({ homePage, children }) => {

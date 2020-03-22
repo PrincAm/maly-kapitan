@@ -4,6 +4,8 @@ import styled from "styled-components"
 import { Link } from "gatsby"
 
 import logo from "../images/gatsby-icon.png"
+import FacebookIcon from "../images/svgs/facebook-square-brands.svg"
+import InstagramIcon from "../images/svgs/instagram-brands.svg"
 
 const FooterInner = styled.footer`
   height: 4rem;
@@ -22,8 +24,17 @@ const Logo = styled.img`
   margin: 0.5rem;
 `
 
-const DivPlaceholder = styled.div`
-  width: 5rem;
+const IconLinks = styled.div`
+  display: flex;
+  svg {
+    height: 2rem;
+    padding-left: 0.5rem;
+    color: #363636;
+    transition: color 0.5s ease;
+  }
+  svg:hover {
+    color: #4f868e;
+  }
 `
 
 const Footer = () => (
@@ -40,7 +51,17 @@ const Footer = () => (
     <Link to="">
       <Logo src={logo} />
     </Link>
-    <div></div>
+    <IconLinks>
+      <a href="https://www.facebook.com/malyKapitan/" target="_blank">
+        <FacebookIcon />
+      </a>
+      <a
+        href="https://www.instagram.com/littlecaptain_and_burrrka/"
+        target="_blank"
+      >
+        <InstagramIcon />
+      </a>
+    </IconLinks>
   </FooterInner>
 )
 
