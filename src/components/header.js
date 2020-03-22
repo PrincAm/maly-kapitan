@@ -5,6 +5,7 @@ import styled from "styled-components"
 
 import { HOME_PAGE_SLUG } from "../pages/index"
 import logo from "../images/gatsby-icon.png"
+import Hamburger from "./hamburger"
 
 const HeaderContainer = styled.header`
   margin-bottom: 1.45rem;
@@ -17,8 +18,8 @@ const HeaderContainer = styled.header`
 const Menu = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 0 auto;
-  max-width: 960px;
+  margin: 0.8rem 5rem;
+  /* max-width: 960px; */
 `
 
 const Links = styled.div`
@@ -78,34 +79,7 @@ const Header = ({ siteTitle }) => {
             <b>malý kapitán</b>
           </LogoContainer>
         </Link>
-        <Links>
-          <LinkContainer>
-            <h6>
-              <Link to="/" activeStyle={{ color: "#4f868e" }}>
-                {homeNode.title}
-              </Link>
-            </h6>
-          </LinkContainer>
-          <LinkContainer>
-            <h6>
-              <Link to="/blog" activeStyle={{ color: "#4f868e" }}>
-                Blog
-              </Link>
-            </h6>
-          </LinkContainer>
-          {menuNodes.map(({ node }) => (
-            <LinkContainer key={node.id}>
-              <h6>
-                <Link
-                  to={node.slug === HOME_PAGE_SLUG ? "/" : node.slug}
-                  activeStyle={{ color: "#4f868e" }}
-                >
-                  {node.title}
-                </Link>
-              </h6>
-            </LinkContainer>
-          ))}
-        </Links>
+        <Hamburger />
       </Menu>
     </HeaderContainer>
   )
