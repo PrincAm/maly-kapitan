@@ -18,7 +18,6 @@ const WelcomeContainer = styled.div`
 
 const Content = styled.div`
   margin: 0 auto;
-  max-width: 60rem;
   padding: 5rem 0;
   font-size: 3rem;
 `

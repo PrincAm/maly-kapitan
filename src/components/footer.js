@@ -3,7 +3,7 @@ import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
 
-import logo from "../images/gatsby-icon.png"
+import logo from "../images/logo.png"
 import FacebookIcon from "../images/svgs/facebook-square-brands.svg"
 import InstagramIcon from "../images/svgs/instagram-brands.svg"
 
@@ -20,7 +20,7 @@ const Copyright = styled.div`
 `
 
 const Logo = styled.img`
-  height: 2rem;
+  height: 4rem;
   margin: 0.5rem;
 `
 

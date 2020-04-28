@@ -1,34 +1,27 @@
-import { Link, useStaticQuery, graphql } from "gatsby"
+import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
-import React from "react"
+import { Link } from "gatsby"
 import styled from "styled-components"
 
 import { HOME_PAGE_SLUG } from "../pages/index"
-import logo from "../images/gatsby-icon.png"
+import logo from "../images/logo.png"
 import Hamburger from "./hamburger"
+import Menu from "./menu"
 
-const HeaderContainer = styled.header`
-  margin-bottom: 1.45rem;
+const HeaderContainer = styled.div`
   position: fixed;
   top: 0;
   z-index: 1;
   width: 100%;
-`
-
-const Menu = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 0.8rem 5rem;
-  /* max-width: 960px; */
 `
-
 const Links = styled.div`
   display: flex;
   align-items: center;
 `
 
 const LinkContainer = styled.div`
-  margin-right: 0.75rem;
   a {
     color: #363636;
     text-shadow: none;
@@ -37,50 +30,47 @@ const LinkContainer = styled.div`
     margin-top: 1.2rem;
   }
 `
-const Logo = styled.img`
-  height: 2rem;
-  margin: 0.5rem 0.5rem 0.5rem 0;
-`
 const LogoContainer = styled.div`
   display: flex;
   align-items: center;
   text-shadow: none;
+  margin: 1.45rem 0 0 5rem;
+`
+const Logo = styled.img`
+  height: 3.2rem;
+  margin-bottom: 0;
+`
+const CompanyName = styled.span`
+  color: #363636;
+  font-size: 1.3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-left: 0.5rem;
 `
 
 const Header = ({ siteTitle }) => {
-  const data = useStaticQuery(graphql`
-    query {
-      allWordpressPage {
-        edges {
-          node {
-            id
-            slug
-            title
-          }
-        }
-      }
+  const [isMenuOpened, setMenuOpened] = useState(false)
+
+  useEffect(() => {
+    if (isMenuOpened) {
+      document.documentElement.style.overflow = "hidden"
+      document.body.scroll = "no"
+    } else {
+      document.documentElement.style.overflow = "scroll"
+      document.body.scroll = "yes"
     }
-  `)
-
-  const { node: homeNode } = data.allWordpressPage.edges.find(
-    ({ node }) => node.slug === HOME_PAGE_SLUG
-  )
-
-  const menuNodes = data.allWordpressPage.edges.filter(
-    ({ node }) => node.slug !== HOME_PAGE_SLUG
-  )
+  }, [isMenuOpened])
 
   return (
     <HeaderContainer>
-      <Menu>
-        <Link to="/">
-          <LogoContainer>
-            <Logo src={logo} />
-            <b>malý kapitán</b>
-          </LogoContainer>
-        </Link>
-        <Hamburger />
-      </Menu>
+      <Link to="/">
+        <LogoContainer>
+          <Logo src={logo} />
+          <CompanyName>malý kapitán</CompanyName>
+        </LogoContainer>
+      </Link>
+      <Hamburger isMenuOpened={isMenuOpened} onOpenMenu={setMenuOpened} />
+      <Menu isMenuOpened={isMenuOpened} onOpenMenu={setMenuOpened} />
     </HeaderContainer>
   )
 }
@@ -90,7 +80,7 @@ Header.propTypes = {
 }
 
 Header.defaultProps = {
-  siteTitle: ``,
+  siteTitle: "",
 }
 
 export default Header

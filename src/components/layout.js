@@ -8,20 +8,25 @@ import Welcome from "./welcome"
 import Footer from "./footer"
 
 const GlobalStyle = createGlobalStyle`
-    body {
-      background: #F7F7F7;
-    }
+  body {
+    background: #F7F7F7;
+  }
+`
 
-  `
+const MainContainer = styled.div`
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+`
 
 const LayoutInner = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   min-height: 100vh;
-  max-width: 960px;
+  max-width: 160rem;
   margin: 0 auto;
-  padding-top: 1.5rem;
+  /* padding-top: 1.5rem; */
 `
 
 const Layout = ({ homePage, children }) => {
@@ -36,7 +41,7 @@ const Layout = ({ homePage, children }) => {
   `)
 
   return (
-    <div>
+    <MainContainer>
       <GlobalStyle />
       <Header siteTitle={data.site.siteMetadata.title} />
       {homePage && <Welcome content={homePage.node.content} />}
@@ -44,7 +49,7 @@ const Layout = ({ homePage, children }) => {
         <main>{children}</main>
         <Footer />
       </LayoutInner>
-    </div>
+    </MainContainer>
   )
 }
 
