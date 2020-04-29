@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react"
 import PropTypes from "prop-types"
 import { Link, useStaticQuery, graphql } from "gatsby"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import {
   animated,
   useTransition,
@@ -12,36 +12,8 @@ import {
 
 import { HOME_PAGE_SLUG } from "../pages/index"
 import logo from "../images/logo.png"
-
-// const MenuContainer = styled.div`
-//   position: absolute;
-//   /* display: ${({ isMenuOpened }) => (isMenuOpened ? "visible" : "none")}; */
-//   height: 100vh;
-//   width: 100%;
-//   top: 0;
-//   left: 0;
-//   background-color: rgba(0, 0, 0, 0.9);
-//   overflow-x: hidden;
-//   transition: 0.5s;
-// `
-
-// const MenuContent = styled.div`
-//   position: relative;
-//   top: 25%;
-//   width: ${({ isMenuOpened }) => (isMenuOpened ? "100%" : 0)};
-//   text-align: center;
-//   margin-top: 30px;
-// `
-
-const LogoImage = styled.img`
-  height: 4rem;
-  /* margin: 0.5rem 0.5rem 0.5rem 0; */
-`
-const LogoContainer = styled.div`
-  display: flex;
-  align-items: center;
-  text-shadow: none;
-`
+import FacebookMediaIcon from "../images/svgs/facebook-square-brands.svg"
+import InstagramMediaIcon from "../images/svgs/instagram-brands.svg"
 
 const Nav = styled(animated.nav)`
   position: absolute;
@@ -50,8 +22,9 @@ const Nav = styled(animated.nav)`
   background: pink;
   height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: space-between;
+
   ul {
     margin: 0;
     padding: 0;
@@ -60,37 +33,78 @@ const Nav = styled(animated.nav)`
 
 const Li = styled(animated.li)`
   list-style: none;
+  margin-left: 10rem;
 
   a {
     color: #363636;
     text-shadow: none;
-    font-size: 50px;
+    font-size: 4.5rem;
     font-weight: bold;
     text-transform: uppercase;
     text-decoration: none;
-    line-height: 1.3;
+    line-height: 4.7rem;
+  }
+  a:hover {
+    color: #4f868e;
+    transition: color 0.5s ease;
+  }
+`
+const IconsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-shadow: none;
+  margin-right: 10rem;
+`
+
+const LogoImage = styled.img`
+  height: 14rem;
+  width: 14rem;
+`
+
+const SocialMediasContainer = styled.div`
+  display: flex;
+`
+
+const SocialMediaIconStyles = css`
+  height: 4rem;
+  width: 4rem;
+  &:hover {
+    color: #363636;
+    transition: color 0.5s ease;
   }
 `
 
-const Logo = () => (
-  <LogoContainer>
-    <LogoImage src={logo} />
-    <b>malý kapitán</b>
-  </LogoContainer>
+const FacebookIcon = styled(FacebookMediaIcon)`
+  ${SocialMediaIconStyles}
+`
+
+const InstagramIcon = styled(InstagramMediaIcon)`
+  ${SocialMediaIconStyles}
+`
+
+const SocialMedias = () => (
+  <SocialMediasContainer>
+    <a href="https://www.facebook.com/malyKapitan/" target="_blank">
+      <FacebookIcon />
+    </a>
+    <a
+      href="https://www.instagram.com/littlecaptain_and_burrrka/"
+      target="_blank"
+    >
+      <InstagramIcon />
+    </a>
+  </SocialMediasContainer>
 )
 
-const links = [
+const icons = [
   {
     name: "logo",
-    component: <Logo />,
+    component: <LogoImage src={logo} />,
   },
   {
-    name: "logo2",
-    component: <Logo />,
-  },
-  {
-    name: "logo3",
-    component: <Logo />,
+    name: "socialMedia",
+    component: <SocialMedias />,
   },
 ]
 
@@ -121,7 +135,7 @@ const Menu = ({ isMenuOpened }) => {
 
   const navRef = useRef()
   const liRef = useRef()
-  const linksRef = useRef()
+  const iconsRef = useRef()
 
   const springProps = useSpring({
     ref: navRef,
@@ -142,35 +156,44 @@ const Menu = ({ isMenuOpened }) => {
     }
   )
 
-  const linksTransition = useTransition(
-    isMenuOpened ? links : [],
+  const iconsTransition = useTransition(
+    isMenuOpened ? icons : [],
     item => item.name,
     {
-      ref: linksRef,
-      trail: 400 / links.length,
+      ref: iconsRef,
+      trail: 400 / icons.length,
       from: { opacity: 0, transform: "translateY(20px)" },
       enter: { opacity: 1, transform: "translateY(0)" },
       leave: { opacity: 0, transform: "translateY(20px)" },
     }
   )
 
-  useChain(
-    isMenuOpened ? [navRef, liRef, linksRef] : [linksRef, liRef, navRef],
-    [0, isMenuOpened ? 0.4 : 0.6]
-  )
+  useChain(isMenuOpened ? [navRef, liRef] : [liRef, navRef], [
+    0,
+    isMenuOpened ? 0.4 : 0.6,
+  ])
+
+  useChain(isMenuOpened ? [navRef, iconsRef] : [iconsRef, navRef], [
+    0,
+    isMenuOpened ? 0.4 : 0.6,
+  ])
 
   return (
     <Nav className="menu" style={springProps}>
       <ul>
         {liTransitions.map(({ item, key, props }) => (
           <Li key={key} style={props}>
-            <Link to={item.slug} activeStyle={{ color: "#4f868e" }}>
-              {item.title}
-            </Link>
+            <Link to={item.slug}>{item.title}</Link>
           </Li>
         ))}
       </ul>
-      {linksTransition.map(({ item, key, props }) => item.component)}
+      <IconsContainer>
+        {iconsTransition.map(({ item, key, props }) => (
+          <animated.div key={key} style={props}>
+            {item.component}
+          </animated.div>
+        ))}
+      </IconsContainer>
     </Nav>
   )
 }
