@@ -23,10 +23,10 @@ const LayoutInner = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 100vh;
+  min-height: ${({ homePage }) => (homePage ? 0 : "100vh")};
   max-width: 160rem;
   margin: 0 auto;
-  /* padding-top: 1.5rem; */
+  padding-top: 2.5rem;
 `
 
 const Layout = ({ homePage, children }) => {
@@ -45,7 +45,7 @@ const Layout = ({ homePage, children }) => {
       <GlobalStyle />
       <Header siteTitle={data.site.siteMetadata.title} />
       {homePage && <Welcome content={homePage.node.content} />}
-      <LayoutInner>
+      <LayoutInner homePage={homePage}>
         <main>{children}</main>
         <Footer />
       </LayoutInner>

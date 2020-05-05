@@ -9,7 +9,7 @@ import PostPreview from "../components/postPreview"
 const PostsInner = styled.div`
   margin: 0 auto;
   max-width: 960px;
-  padding-right: 1.0875rem;
+  padding-top: 4rem;
 `
 
 const Posts = ({ title }) => {

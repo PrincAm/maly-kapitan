@@ -19,7 +19,7 @@ const Nav = styled(animated.nav)`
   position: absolute;
   top: 0;
   left: 0;
-  background: pink;
+  background: pink; /* TODO change bg color */
   height: 100vh;
   display: flex;
   align-items: center;

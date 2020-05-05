@@ -1,8 +1,14 @@
 import { graphql, useStaticQuery } from "gatsby"
 import PropTypes from "prop-types"
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import styled from "styled-components"
-import { useTrail, animated } from "react-spring"
+import {
+  animated,
+  useTransition,
+  useSpring,
+  useChain,
+  config,
+} from "react-spring"
 import BackgroundImage from "gatsby-background-image"
 
 import SEO from "./seo"
@@ -11,38 +17,81 @@ import Posts from "./posts"
 const WelcomeContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background-image: url("../../images/cover.jpg");
   padding-top: 20rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
-const Content = styled.div`
-  margin: 0 auto;
-  padding: 5rem 0;
-  font-size: 3rem;
-`
-
-const Text = styled(animated.div)`
-  position: relative;
-  width: 100%;
-  height: 7.5rem;
-  line-height: 7.5rem;
+const MainParagraph = styled(animated.div)`
+  line-height: 5rem;
   color: palevioletred;
-  font-size: 5em;
+  font-size: 4.5em;
   font-weight: 800;
   text-transform: uppercase;
-  will-change: transform, opacity;
-  overflow: hidden;
-  div {
-    overflow: hidden;
+  margin-bottom: 0.5rem;
+`
+
+const SecondaryParagraph = styled(animated.div)`
+  line-height: 2.3rem;
+  color: palevioletred;
+  font-size: 2em;
+  font-weight: 800;
+  margin-bottom: 0.4rem;
+`
+
+const GreenText = styled.span`
+  color: #4f868e;
+`
+
+const PostsWrapper = styled.div`
+  min-height: 100vh;
+`
+
+const Arrow = styled.div`
+  box-sizing: border-box;
+  height: 5vw;
+  width: 5vw;
+  border-style: solid;
+  border-color: #4f868e;
+  border-width: 0px 3px 3px 0px;
+  transform: rotate(45deg);
+  transition: border-width 150ms ease-in-out;
+  &:hover {
+    border-bottom-width: 4px;
+    border-right-width: 4px;
+    cursor: pointer;
   }
 `
 
-const Background = styled(BackgroundImage)`
-  margin-bottom: 2rem;
-`
+const texts = [
+  {
+    id: "init",
+    text: (
+      <>
+        šiperka <GreenText>malý kapitán</GreenText>
+      </>
+    ),
+  },
+  {
+    id: "schipperke",
+    text: "Stránky věnované tomuto krásnému plemeni",
+  },
+  {
+    id: "site",
+    text: "Mnoho informací, postřehů a fotek",
+  },
+  {
+    id: "button",
+  },
+]
 
-const Welcome = ({ content }) => {
+const scrollToRef = ref =>
+  ref.current.scrollIntoView({ behavior: "smooth", block: "start" })
+
+const Welcome = () => {
   const { desktop } = useStaticQuery(
     graphql`
       query {
@@ -58,59 +107,64 @@ const Welcome = ({ content }) => {
   )
   const imageData = desktop.childImageSharp.fluid
 
-  const re = /<\s*p[^>]*>(.*?)<\s*\/\s*p>/g // get paragraphs
-  const paragraphs = content
-    .split(re)
-    .filter(paragraph => paragraph.match(/[a-zA-Z0-9_]/g)) // remove empty strings
-  const config = { mass: 5, tension: 1000, friction: 300 }
-
-  const [toggle, set] = useState(false)
-  const trail = useTrail(paragraphs.length, {
-    config,
-    opacity: toggle ? 1 : 0,
-    x: toggle ? 0 : 20,
-    height: toggle ? 120 : 0,
-    from: { opacity: 0, x: 20, height: 0 },
-  })
+  const [paragraphs, setParagraphs] = useState({})
 
   useEffect(() => {
-    setTimeout(() => set(true), 300)
+    setTimeout(() => setParagraphs(texts), 500)
   })
+
+  const postsRef = useRef(null)
+  const handleScroll = () => scrollToRef(postsRef)
+
+  const paragraphsTransition = useTransition(paragraphs, item => item.id, {
+    trail: 1000 / paragraphs.length,
+    from: { opacity: 0, transform: "translateY(20px)" },
+    enter: { opacity: 1, transform: "translateY(0)" },
+  })
+
   return (
     <div>
       <SEO title="Home" />
-      <Background
-        Tag="section"
+      <BackgroundImage
+        tag="section"
         fluid={imageData}
-        backgroundColor={`#040e18`}
-        title="malykapitan.cz"
+        backgroundColor="#363636"
         id="malykapitan.cz"
         role="img"
         aria-label="black dog"
       >
         <WelcomeContainer>
-          {trail.map(({ x, height, ...rest }, index) => (
-            <Text
-              key={paragraphs[index]}
-              style={{
-                ...rest,
-                transform: x.interpolate(x => `translate3d(0,${x}px,0)`),
-              }}
-            >
-              <animated.div style={{ height }}>
-                {paragraphs[index]}
-              </animated.div>
-            </Text>
-          ))}
+          {paragraphsTransition.map(({ item, props, key }) => {
+            switch (item.id) {
+              case "init":
+                return (
+                  <MainParagraph key={key} style={props}>
+                    {item.text}
+                  </MainParagraph>
+                )
+
+              case "button":
+                return (
+                  <animated.div key={key} style={props}>
+                    <Arrow onClick={handleScroll} />
+                  </animated.div>
+                )
+
+              default:
+                return (
+                  <SecondaryParagraph key={key} style={props}>
+                    {item.text}
+                  </SecondaryParagraph>
+                )
+            }
+          })}
         </WelcomeContainer>
-      </Background>
-      <Posts title="Poslední příspěvky" />
+      </BackgroundImage>
+      <PostsWrapper ref={postsRef}>
+        <Posts title="Poslední příspěvky" />
+      </PostsWrapper>
     </div>
   )
 }
 
 export default Welcome
-
-Welcome.propTypes = {
-  content: PropTypes.string.isRequired,
-}
