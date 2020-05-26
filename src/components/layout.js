@@ -22,7 +22,6 @@ const LayoutContainer = styled.div`
 const Main = styled.main`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   margin: 0 auto;
   padding-top: 3rem;
   max-width: 60rem;

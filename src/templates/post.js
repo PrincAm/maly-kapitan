@@ -1,9 +1,14 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
 import styled from "styled-components"
+import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+
+const Title = styled.h1`
+  margin-bottom: 0.3rem;
+`
 
 const Date = styled.div`
   font-size: 0.9rem;
@@ -12,13 +17,19 @@ const Date = styled.div`
 `
 
 const Post = ({ data }) => {
-  const { title, date, content } = data.wordpressPost
+  const { title, date, content, featured_media } = data.wordpressPost
+
+  console.log(featured_media.localFile.childImageSharp)
 
   return (
     <Layout>
       <SEO title={title} />
-      <h1>{title}</h1>
+      <Title>{title}</Title>
       <Date>{date}</Date>
+      <Img
+        resolutions={featured_media.localFile.childImageSharp.resolutions}
+        key={featured_media.localFile.childImageSharp.resolutions.src}
+      />
       <div dangerouslySetInnerHTML={{ __html: content }} />
     </Layout>
   )
@@ -32,6 +43,16 @@ export const postQuery = graphql`
       title
       content
       date(formatString: "DD.MM.YYYY")
+      featured_media {
+        id
+        localFile {
+          childImageSharp {
+            resolutions(width: 400, height: 400) {
+              ...GatsbyImageSharpResolutions_withWebp_tracedSVG
+            }
+          }
+        }
+      }
     }
     site {
       siteMetadata {
