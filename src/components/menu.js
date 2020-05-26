@@ -108,6 +108,31 @@ const icons = [
   },
 ]
 
+const prepareMenuItems = edges => {
+  const items = edges.map(node =>
+    node.node.slug === HOME_PAGE_SLUG
+      ? {
+          id: node.node.id,
+          title: node.node.title,
+          slug: "/",
+        }
+      : node.node
+  )
+  items.push(
+    {
+      id: "blog",
+      title: "blog",
+      slug: "/blog",
+    },
+    {
+      id: "gallery",
+      title: "galerie",
+      slug: "/gallery",
+    }
+  )
+  return items
+}
+
 const Menu = ({ isMenuOpened }) => {
   const data = useStaticQuery(graphql`
     query {
@@ -123,16 +148,6 @@ const Menu = ({ isMenuOpened }) => {
     }
   `)
 
-  const menuItems = data.allWordpressPage.edges.map(node =>
-    node.node.slug === HOME_PAGE_SLUG
-      ? {
-          id: node.node.id,
-          title: node.node.title,
-          slug: "/",
-        }
-      : node.node
-  )
-
   const navRef = useRef()
   const liRef = useRef()
   const iconsRef = useRef()
@@ -144,6 +159,7 @@ const Menu = ({ isMenuOpened }) => {
     to: { width: isMenuOpened ? "100%" : "0%" },
   })
 
+  const menuItems = prepareMenuItems(data.allWordpressPage.edges)
   const liTransitions = useTransition(
     isMenuOpened ? menuItems : [],
     item => item.id,

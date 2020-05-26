@@ -161,7 +161,7 @@ const Welcome = () => {
         </WelcomeContainer>
       </BackgroundImage>
       <PostsWrapper ref={postsRef}>
-        <Posts title="Poslední příspěvky" />
+        <Posts title="Poslední příspěvky" inOnWelcomePage />
       </PostsWrapper>
     </div>
   )

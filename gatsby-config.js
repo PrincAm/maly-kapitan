@@ -11,6 +11,8 @@ module.exports = {
       options: {
         baseUrl: `gilded-strobes.000webhostapp.com`,
         protocol: `https`,
+        hostingWPCOM: false,
+        useACF: true,
         plugins: [
           {
             resolve: `gatsby-wordpress-inline-images`,
