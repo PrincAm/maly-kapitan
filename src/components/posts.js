@@ -8,8 +8,8 @@ import PostPreview from "../components/postPreview"
 
 const PostsInner = styled.div`
   margin: 0 auto;
-  max-width: 960px;
-  padding-top: 3rem;
+  max-width: 60rem;
+  padding-top: ${({ inOnWelcomePage }) => (inOnWelcomePage ? "3rem" : 0)};
 `
 
 const Title = styled.h1`
@@ -57,7 +57,7 @@ const Posts = ({ title, inOnWelcomePage }) => {
     ? 3
     : data.allWordpressPost.edges.length
   return (
-    <PostsInner>
+    <PostsInner inOnWelcomePage={inOnWelcomePage}>
       <Title>{title}</Title>
       {data.allWordpressPost.edges
         .slice(0, numberOfPreviews)

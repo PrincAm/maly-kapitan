@@ -13,19 +13,23 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-const MainContainer = styled.div`
+const LayoutContainer = styled.div`
   max-width: 80rem;
   margin-left: auto;
   margin-right: auto;
 `
 
-const LayoutInner = styled.div`
+const Main = styled.main`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: ${({ homePage }) => (homePage ? 0 : "100vh")};
-  max-width: 160rem;
   margin: 0 auto;
+  padding-top: 3rem;
+  max-width: 60rem;
+  min-height: ${({ homePage }) => (homePage ? 0 : "100vh")};
+  figure {
+    text-align: -webkit-center;
+  }
 `
 
 const Layout = ({ homePage, children }) => {
@@ -40,15 +44,13 @@ const Layout = ({ homePage, children }) => {
   `)
 
   return (
-    <MainContainer>
+    <LayoutContainer>
       <GlobalStyle />
       <Header siteTitle={data.site.siteMetadata.title} />
       {homePage && <Welcome content={homePage.node.content} />}
-      <LayoutInner homePage={homePage}>
-        <main>{children}</main>
-        <Footer />
-      </LayoutInner>
-    </MainContainer>
+      <Main homePage={homePage}>{children}</Main>
+      <Footer />
+    </LayoutContainer>
   )
 }
 

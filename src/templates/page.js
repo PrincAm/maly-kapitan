@@ -4,18 +4,16 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-class Page extends Component {
-  render() {
-    const StaticPage = this.props.data.wordpressPage
+const Page = ({ data }) => {
+  const { title, content } = data.wordpressPage
 
-    return (
-      <Layout>
-        <SEO title={StaticPage.title} />
-        <h1>{StaticPage.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: StaticPage.content }} />
-      </Layout>
-    )
-  }
+  return (
+    <Layout>
+      <SEO title={title} />
+      <h1>{title}</h1>
+      <div dangerouslySetInnerHTML={{ __html: content }} />
+    </Layout>
+  )
 }
 
 export default Page

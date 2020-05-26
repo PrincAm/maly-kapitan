@@ -1,25 +1,27 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
-import PropTypes from "prop-types"
+import styled from "styled-components"
 
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 
-class Post extends Component {
-  render() {
-    const post = this.props.data.wordpressPost
+const Date = styled.div`
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 0.5rem;
+`
 
-    return (
-      <Layout>
-        <h1>{post.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: post.content }} />
-      </Layout>
-    )
-  }
-}
+const Post = ({ data }) => {
+  const { title, date, content } = data.wordpressPost
 
-Post.propTypes = {
-  data: PropTypes.object.isRequired,
-  edges: PropTypes.array,
+  return (
+    <Layout>
+      <SEO title={title} />
+      <h1>{title}</h1>
+      <Date>{date}</Date>
+      <div dangerouslySetInnerHTML={{ __html: content }} />
+    </Layout>
+  )
 }
 
 export default Post
@@ -29,6 +31,7 @@ export const postQuery = graphql`
     wordpressPost(id: { eq: $id }) {
       title
       content
+      date(formatString: "DD.MM.YYYY")
     }
     site {
       siteMetadata {
