@@ -35,17 +35,19 @@ const PostPreview = ({
   const imageSharp = featuredMedia && featuredMedia.localFile.childImageSharp
   return (
     <Preview>
-      {imageSharp ? (
-        <PreviewImg
-          resolutions={imageSharp.resolutions}
-          key={imageSharp.resolutions.src}
-        />
-      ) : (
-        <PreviewImg
-          resolutions={defaultImage.childImageSharp.resolutions}
-          key={defaultImage.childImageSharp.resolutions.src}
-        />
-      )}
+      <Link to={`/post/${slug}`}>
+        {imageSharp ? (
+          <PreviewImg
+            resolutions={imageSharp.resolutions}
+            key={imageSharp.resolutions.src}
+          />
+        ) : (
+          <PreviewImg
+            resolutions={defaultImage.childImageSharp.resolutions}
+            key={defaultImage.childImageSharp.resolutions.src}
+          />
+        )}
+      </Link>
       <Content>
         <Title>
           <Link to={`/post/${slug}`}>{title}</Link>

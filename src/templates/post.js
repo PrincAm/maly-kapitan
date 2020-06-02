@@ -19,17 +19,17 @@ const Date = styled.div`
 const Post = ({ data }) => {
   const { title, date, content, featured_media } = data.wordpressPost
 
-  console.log(featured_media.localFile.childImageSharp)
-
   return (
     <Layout>
       <SEO title={title} />
       <Title>{title}</Title>
       <Date>{date}</Date>
-      <Img
-        resolutions={featured_media.localFile.childImageSharp.resolutions}
-        key={featured_media.localFile.childImageSharp.resolutions.src}
-      />
+      {featured_media && (
+        <Img
+          resolutions={featured_media.localFile.childImageSharp.resolutions}
+          key={featured_media.localFile.childImageSharp.resolutions.src}
+        />
+      )}
       <div dangerouslySetInnerHTML={{ __html: content }} />
     </Layout>
   )
