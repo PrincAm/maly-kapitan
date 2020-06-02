@@ -133,7 +133,7 @@ const prepareMenuItems = edges => {
   return items
 }
 
-const Menu = ({ isMenuOpened }) => {
+const Menu = ({ isMenuOpened, onMenuOpen }) => {
   const data = useStaticQuery(graphql`
     query {
       allWordpressPage {
@@ -194,12 +194,18 @@ const Menu = ({ isMenuOpened }) => {
     isMenuOpened ? 0.4 : 0.6,
   ])
 
+  const handleLinkClick = () => {
+    onMenuOpen(false)
+  }
+
   return (
     <Nav className="menu" style={springProps}>
       <ul>
         {liTransitions.map(({ item, key, props }) => (
           <Li key={key} style={props}>
-            <Link to={item.slug}>{item.title}</Link>
+            <Link to={item.slug} onClick={handleLinkClick}>
+              {item.title}
+            </Link>
           </Li>
         ))}
       </ul>
