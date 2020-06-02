@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import styled from "styled-components"
 import Img from "gatsby-image"
 
@@ -38,6 +38,7 @@ const Post = ({ data }) => {
         </ImgWrapper>
       )}
       <div dangerouslySetInnerHTML={{ __html: content }} />
+      <Link to={`/blog`}>&larr; Zpátky na blog</Link>
     </Layout>
   )
 }
