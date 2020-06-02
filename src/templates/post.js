@@ -16,6 +16,11 @@ const Date = styled.div`
   margin-bottom: 0.5rem;
 `
 
+const ImgWrapper = styled.div`
+  text-align: center;
+  margin-bottom: 0.5rem;
+`
+
 const Post = ({ data }) => {
   const { title, date, content, featured_media } = data.wordpressPost
 
@@ -25,10 +30,12 @@ const Post = ({ data }) => {
       <Title>{title}</Title>
       <Date>{date}</Date>
       {featured_media && (
-        <Img
-          resolutions={featured_media.localFile.childImageSharp.resolutions}
-          key={featured_media.localFile.childImageSharp.resolutions.src}
-        />
+        <ImgWrapper>
+          <Img
+            resolutions={featured_media.localFile.childImageSharp.resolutions}
+            key={featured_media.localFile.childImageSharp.resolutions.src}
+          />
+        </ImgWrapper>
       )}
       <div dangerouslySetInnerHTML={{ __html: content }} />
     </Layout>
