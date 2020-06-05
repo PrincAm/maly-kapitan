@@ -7,7 +7,7 @@ import Posts from "../components/posts"
 
 const Blog = () => (
   <Layout>
-    <SEO title="404: Not found" />
+    <SEO title="Blog" />
     <Posts title="Blog" />
   </Layout>
 )

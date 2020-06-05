@@ -1,16 +1,18 @@
 import Typography from "typography"
-import twinPeaksTheme from "typography-theme-twin-peaks"
+import altonTheme from "typography-theme-alton"
 
-twinPeaksTheme.googleFonts = [
+altonTheme.googleFonts = [
   {
     name: "Lato",
     styles: ["400", "400i", "600", "700"],
   },
 ]
 
-twinPeaksTheme.bodyFontFamily = ["Lato", "sans-serif"]
+altonTheme.bodyFontFamily = ["Lato", "sans-serif"]
+altonTheme.baseFontSize = 21
+altonTheme.baseLineHeight = 1.5
 
-twinPeaksTheme.overrideThemeStyles = () => {
+altonTheme.overrideThemeStyles = ({ adjustFontSizeTo, scale, rhythm }) => {
   return {
     "p, h1, h2, h3, h4, h5, h6, b": {
       color: "#363636",
@@ -29,7 +31,7 @@ twinPeaksTheme.overrideThemeStyles = () => {
   }
 }
 
-const typography = new Typography(twinPeaksTheme)
+const typography = new Typography(altonTheme)
 
 // Hot reload typography in development.
 if (process.env.NODE_ENV !== `production`) {

@@ -28,6 +28,15 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-cloudinary-image-gallery`,
+      options: {
+        cloudName: "dznxs2k2a", // FIXME store to env variable
+        apiKey: 119873996435698, // FIXME store to env variable
+        apiSecret: "9LP39DlxYhQ7rfKvcraUAVeVJjg", // FIXME store to env variable
+        folders: ["gatsby"],
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,

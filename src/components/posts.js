@@ -9,7 +9,7 @@ import PostPreview from "../components/postPreview"
 const PostsInner = styled.div`
   margin: 0 auto;
   max-width: 60rem;
-  padding-top: ${({ inOnWelcomePage }) => (inOnWelcomePage ? "3rem" : 0)};
+  padding-top: ${({ inOnWelcomePage }) => (inOnWelcomePage ? "5rem" : 0)};
 `
 
 const Title = styled.h1`

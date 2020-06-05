@@ -23,7 +23,7 @@ const Main = styled.main`
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  padding-top: 3rem;
+  padding-top: 5rem;
   max-width: 60rem;
   min-height: ${({ homePage }) => (homePage ? 0 : "100vh")};
   figure {

@@ -13,7 +13,7 @@ const FooterInner = styled.footer`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0 2rem;
+  margin: 0 5rem;
 `
 
 const Copyright = styled.div`
