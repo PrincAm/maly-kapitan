@@ -60,5 +60,17 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: "Šiperka Malý Kapitán",
+        short_name: "Malý Kapitán",
+        start_url: "/",
+        background_color: "#F7F7F7",
+        theme_color: "#F7F7F7",
+        display: "standalone",
+        icon: "src/images/logo_small.png",
+      },
+    },
   ],
 }
