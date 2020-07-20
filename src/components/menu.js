@@ -83,18 +83,28 @@ const InstagramIcon = styled(InstagramMediaIcon)`
   ${SocialMediaIconStyles}
 `
 
+const Links = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
 const SocialMedias = () => (
-  <SocialMediasContainer>
-    <a href="https://www.facebook.com/malyKapitan/" target="_blank">
-      <FacebookIcon />
+  <Links>
+    <SocialMediasContainer>
+      <a href="https://www.facebook.com/malyKapitan/" target="_blank">
+        <FacebookIcon />
+      </a>
+      <a
+        href="https://www.instagram.com/littlecaptain_and_burrrka/"
+        target="_blank"
+      >
+        <InstagramIcon />
+      </a>
+    </SocialMediasContainer>
+    <a href="mailto:info@malykapitan.cz" target="_blank">
+      info@malykapitan.cz
     </a>
-    <a
-      href="https://www.instagram.com/littlecaptain_and_burrrka/"
-      target="_blank"
-    >
-      <InstagramIcon />
-    </a>
-  </SocialMediasContainer>
+  </Links>
 )
 
 const icons = [

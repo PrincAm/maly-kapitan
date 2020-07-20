@@ -38,15 +38,18 @@ const IconLinks = styled.div`
   }
 `
 
+const Mail = styled.a`
+  font-size: 0.9rem;
+`
+
 const Footer = () => (
   <FooterInner>
     <Copyright>
       © 2020, malykapitan.cz
       <div>
-        made by{" "}
-        <a href="https://www.adamblazek.com/" target="_blank">
-          adam blažek
-        </a>
+        <Mail href="mailto:info@malykapitan.cz" target="_blank">
+          info@malykapitan.cz
+        </Mail>
       </div>
     </Copyright>
     <Link to="">

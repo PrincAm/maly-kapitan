@@ -2,8 +2,8 @@ const path = require(`path`)
 
 module.exports = {
   siteMetadata: {
-    title: `An example to learn how to source data form WordPress`,
-    subtitle: `Sourcing data from WordPress`,
+    title: `Malý Kapitán psí plemeno šiperka `,
+    subtitle: `Mnoho informací, postřehů a fotek`,
   },
   plugins: [
     {
@@ -30,9 +30,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-cloudinary-image-gallery`,
       options: {
-        cloudName: process.env.CLOUDINARY_CLOUDNAME,
-        apiKey: process.env.CLOUDINARY_API_KEY,
-        apiSecret: process.env.CLOUDINARY_API_SECRET,
+        cloudName: "dznxs2k2a", // FIXME store to env variable
+        apiKey: 119873996435698, // FIXME store to env variable
+        apiSecret: "9LP39DlxYhQ7rfKvcraUAVeVJjg", // FIXME store to env variable
         folders: ["gatsby"],
       },
     },

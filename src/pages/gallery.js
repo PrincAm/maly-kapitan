@@ -14,7 +14,6 @@ const ImageGalleryWrapper = styled.div`
   &:hover a {
     cursor: pointer;
   }
-    
 `
 
 const Gallery = ({ folder, columns, orientation }) => (
