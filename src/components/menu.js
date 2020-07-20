@@ -88,6 +88,14 @@ const Links = styled.div`
   flex-direction: column;
 `
 
+const Mail = styled.a`
+  font-weight: 500;
+  &:hover {
+    color: #363636;
+    transition: color 0.5s ease;
+  }
+`
+
 const SocialMedias = () => (
   <Links>
     <SocialMediasContainer>
@@ -101,9 +109,9 @@ const SocialMedias = () => (
         <InstagramIcon />
       </a>
     </SocialMediasContainer>
-    <a href="mailto:info@malykapitan.cz" target="_blank">
+    <Mail href="mailto:info@malykapitan.cz" target="_blank">
       info@malykapitan.cz
-    </a>
+    </Mail>
   </Links>
 )
 

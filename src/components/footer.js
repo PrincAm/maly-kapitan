@@ -40,6 +40,10 @@ const IconLinks = styled.div`
 
 const Mail = styled.a`
   font-size: 0.9rem;
+  &:hover {
+    color: #000;
+    transition: color 0.5s ease;
+  }
 `
 
 const Footer = () => (
