@@ -13,7 +13,7 @@ export default ({ data }) => {
   )
   return (
     <Layout homePage={homePage}>
-      <SEO title="Malý Kapitán" />
+      <SEO title="Home" />
     </Layout>
   )
 }

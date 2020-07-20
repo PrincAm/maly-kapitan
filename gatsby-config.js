@@ -2,7 +2,7 @@ const path = require(`path`)
 
 module.exports = {
   siteMetadata: {
-    title: `Malý Kapitán psí plemeno šiperka `,
+    title: `Malý Kapitán šiperka `,
     subtitle: `Mnoho informací, postřehů a fotek`,
   },
   plugins: [
