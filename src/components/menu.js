@@ -10,7 +10,6 @@ import {
   config,
 } from "react-spring"
 
-import { HOME_PAGE_SLUG } from "../pages/index"
 import logo from "../images/logo.png"
 import FacebookMediaIcon from "../images/svgs/facebook-square-brands.svg"
 import InstagramMediaIcon from "../images/svgs/instagram-brands.svg"
@@ -127,15 +126,7 @@ const icons = [
 ]
 
 const prepareMenuItems = edges => {
-  const items = edges.map(node =>
-    node.node.slug === HOME_PAGE_SLUG
-      ? {
-          id: node.node.id,
-          title: node.node.title,
-          slug: "/",
-        }
-      : node.node
-  )
+  const items = edges.map(node => node.node)
   items.push(
     {
       id: "blog",
@@ -148,6 +139,11 @@ const prepareMenuItems = edges => {
       slug: "/gallery",
     }
   )
+  items.unshift({
+    id: "home",
+    title: "domů",
+    slug: "/",
+  })
   return items
 }
 

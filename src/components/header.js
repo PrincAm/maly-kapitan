@@ -3,7 +3,6 @@ import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import styled from "styled-components"
 
-import { HOME_PAGE_SLUG } from "../pages/index"
 import logo from "../images/logo.png"
 import Hamburger from "./hamburger"
 import Menu from "./menu"
@@ -38,6 +37,7 @@ const LogoContainer = styled.div`
 `
 const Logo = styled.img`
   height: 3.2rem;
+  width: 3.2rem;
   margin-bottom: 0;
 `
 const CompanyName = styled.span`

@@ -25,13 +25,13 @@ const Main = styled.main`
   margin: 0 auto;
   padding-top: 5rem;
   max-width: 60rem;
-  min-height: ${({ homePage }) => (homePage ? 0 : "100vh")};
+  min-height: ${({ isOnHomePage }) => (isOnHomePage ? 0 : "100vh")};
   figure {
     text-align: -webkit-center;
   }
 `
 
-const Layout = ({ homePage, children }) => {
+const Layout = ({ isOnHomePage, children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -46,8 +46,8 @@ const Layout = ({ homePage, children }) => {
     <LayoutContainer>
       <GlobalStyle />
       <Header siteTitle={data.site.siteMetadata.title} />
-      {homePage && <Welcome content={homePage.node.content} />}
-      <Main homePage={homePage}>{children}</Main>
+      {isOnHomePage && <Welcome />}
+      <Main isOnHomePage={isOnHomePage}>{children}</Main>
       <Footer />
     </LayoutContainer>
   )

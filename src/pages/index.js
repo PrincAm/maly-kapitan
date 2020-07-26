@@ -5,30 +5,12 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PostPreview from "../components/postPreview"
 
-export const HOME_PAGE_SLUG = "home"
+export default () => {
+  const isOnHomePage = window.location.pathname === "/"
 
-export default ({ data }) => {
-  const [homePage] = data.allWordpressPage.edges.filter(
-    ({ node }) => node.slug === HOME_PAGE_SLUG
-  )
   return (
-    <Layout homePage={homePage}>
+    <Layout isOnHomePage={isOnHomePage}>
       <SEO title="Home" />
     </Layout>
   )
 }
-
-export const pageQuery = graphql`
-  query {
-    allWordpressPage {
-      edges {
-        node {
-          id
-          content
-          slug
-          title
-        }
-      }
-    }
-  }
-`
