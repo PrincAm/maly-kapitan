@@ -5,9 +5,9 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PostPreview from "../components/postPreview"
 
-export default () => {
-  const isOnHomePage = window.location.pathname === "/"
+const isOnHomePage = window.location.pathname === "/"
 
+export default () => {
   return (
     <Layout isOnHomePage={isOnHomePage}>
       <SEO title="Home" />
