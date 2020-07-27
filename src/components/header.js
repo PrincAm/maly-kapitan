@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 import { graphql, useStaticQuery, Link } from "gatsby"
-import styled from "styled-components"
 import Img from "gatsby-image"
 
 import logo from "../images/logo.png"
 import Hamburger from "./hamburger"
 import Menu from "./menu"
 
-import "./header.css"
+import "../styles/header.css"
 
 const Header = ({ siteTitle }) => {
   const data = useStaticQuery(graphql`
