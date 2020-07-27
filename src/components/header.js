@@ -82,7 +82,7 @@ const Header = ({ siteTitle }) => {
         <LogoContainer>
           <Logo
             fluid={data.logo.childImageSharp.fluid}
-            style={{ height: "60px", width: "60px" }}
+            style={{ height: "3.2rem", width: "3.2rem" }}
           />
           <CompanyName>malý kapitán</CompanyName>
         </LogoContainer>
