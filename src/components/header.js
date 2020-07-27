@@ -37,8 +37,8 @@ const LogoContainer = styled.div`
   margin: 1.45rem 0 0 5rem;
 `
 const Logo = styled(Img)`
-  height: 3.2rem;
-  width: 3.2rem;
+  /* height: 3.2rem;
+  width: 3.2rem; */
   margin-bottom: 0;
 `
 const CompanyName = styled.span`
@@ -80,7 +80,10 @@ const Header = ({ siteTitle }) => {
     <HeaderContainer>
       <Link to="/">
         <LogoContainer>
-          <Logo fluid={data.logo.childImageSharp.fluid} />
+          <Logo
+            fluid={data.logo.childImageSharp.fluid}
+            style={{ height: "60px", width: "60px" }}
+          />
           <CompanyName>malý kapitán</CompanyName>
         </LogoContainer>
       </Link>
