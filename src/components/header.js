@@ -8,46 +8,7 @@ import logo from "../images/logo.png"
 import Hamburger from "./hamburger"
 import Menu from "./menu"
 
-const HeaderContainer = styled.div`
-  position: fixed;
-  top: 0;
-  z-index: 1;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-`
-const Links = styled.div`
-  display: flex;
-  align-items: center;
-`
-
-const LinkContainer = styled.div`
-  a {
-    color: #363636;
-    text-shadow: none;
-  }
-  h6 {
-    margin-top: 1.2rem;
-  }
-`
-const LogoContainer = styled.div`
-  display: flex;
-  align-items: center;
-  text-shadow: none;
-  margin: 1.45rem 0 0 5rem;
-`
-const Logo = styled(Img)`
-  /* height: 3.2rem;
-  width: 3.2rem; */
-  margin-bottom: 0;
-`
-const CompanyName = styled.span`
-  color: #000;
-  font-size: 1.3rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  margin-left: 0.5rem;
-`
+import "./header.css"
 
 const Header = ({ siteTitle }) => {
   const data = useStaticQuery(graphql`
@@ -62,8 +23,6 @@ const Header = ({ siteTitle }) => {
     }
   `)
 
-  console.log(data)
-
   const [isMenuOpened, setMenuOpened] = useState(false)
 
   useEffect(() => {
@@ -77,19 +36,19 @@ const Header = ({ siteTitle }) => {
   }, [isMenuOpened])
 
   return (
-    <HeaderContainer>
+    <div className="header-container">
       <Link to="/">
-        <LogoContainer>
-          <Logo
+        <div className="header-logo-container">
+          <Img
             fluid={data.logo.childImageSharp.fluid}
-            style={{ height: "3.2rem", width: "3.2rem" }}
+            className="header-logo"
           />
-          <CompanyName>malý kapitán</CompanyName>
-        </LogoContainer>
+          <span className="header-companyName">malý kapitán</span>
+        </div>
       </Link>
       <Hamburger isMenuOpened={isMenuOpened} onOpenMenu={setMenuOpened} />
       <Menu isMenuOpened={isMenuOpened} onOpenMenu={setMenuOpened} />
-    </HeaderContainer>
+    </div>
   )
 }
 
