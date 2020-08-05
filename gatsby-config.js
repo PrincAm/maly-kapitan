@@ -1,4 +1,7 @@
 const path = require(`path`)
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV || "development"}`,
+})
 
 module.exports = {
   siteMetadata: {
@@ -30,9 +33,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-cloudinary-image-gallery`,
       options: {
-        cloudName: process.env.GATSBY_CLOUDINARY_CLOUDNAME,
-        apiKey: process.env.GATSBY_CLOUDINARY_API_KEY,
-        apiSecret: process.env.GATSBY_CLOUDINARY_API_SECRET,
+        cloudName: process.env.CLOUDINARY_CLOUDNAME,
+        apiKey: process.env.CLOUDINARY_API_KEY,
+        apiSecret: process.env.CLOUDINARY_API_SECRET,
         folders: ["gatsby"],
       },
     },
