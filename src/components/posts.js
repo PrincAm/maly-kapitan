@@ -1,20 +1,12 @@
 import React from "react"
 import { graphql, useStaticQuery, Link } from "gatsby"
-import styled from "styled-components"
+import classNames from "classnames"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PostPreview from "../components/postPreview"
 
-const PostsInner = styled.div`
-  margin: 0 auto;
-  max-width: 60rem;
-  padding-top: ${({ inOnWelcomePage }) => (inOnWelcomePage ? "5rem" : 0)};
-`
-
-const Title = styled.h1`
-  margin-bottom: 1rem;
-`
+import "../styles/posts.css"
 
 const Posts = ({ title, inOnWelcomePage }) => {
   const data = useStaticQuery(graphql`
@@ -57,8 +49,10 @@ const Posts = ({ title, inOnWelcomePage }) => {
     ? 3
     : data.allWordpressPost.edges.length
   return (
-    <PostsInner inOnWelcomePage={inOnWelcomePage}>
-      <Title>{title}</Title>
+    <div
+      className={classNames("posts-container", { welcome: inOnWelcomePage })}
+    >
+      <h1 className="posts-title">{title}</h1>
       {data.allWordpressPost.edges
         .slice(0, numberOfPreviews)
         .map(({ node }) => (
@@ -72,7 +66,7 @@ const Posts = ({ title, inOnWelcomePage }) => {
             defaultImage={data.placeholderImage}
           />
         ))}
-    </PostsInner>
+    </div>
   )
 }
 
