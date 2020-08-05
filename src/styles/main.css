@@ -1,0 +1,22 @@
+.layout-container {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.layout-main {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding-top: 5rem;
+  max-width: 60rem;
+  min-height: 0;
+}
+
+.layout-main .homepage {
+  min-height: 100vh;
+}
+
+.layout-main figure {
+  text-align: -webkit-center;
+}
