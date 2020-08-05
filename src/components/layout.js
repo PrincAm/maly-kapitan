@@ -1,19 +1,13 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import styled, { createGlobalStyle } from "styled-components"
+import classNames from "classnames"
 
 import Header from "./header"
 import Welcome from "./welcome"
 import Footer from "./footer"
 
 import "../styles/main.css"
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    background: #F7F7F7;
-  }
-`
 
 const Layout = ({ isOnHomePage, children }) => {
   const data = useStaticQuery(graphql`
@@ -28,10 +22,9 @@ const Layout = ({ isOnHomePage, children }) => {
 
   return (
     <div className="layout-container">
-      <GlobalStyle />
       <Header siteTitle={data.site.siteMetadata.title} />
       {isOnHomePage && <Welcome />}
-      <main className={`layout-main ${isOnHomePage ? "home" : ""}`}>
+      <main className={classNames("layout-main", { homepage: isOnHomePage })}>
         {children}
       </main>
       <Footer />

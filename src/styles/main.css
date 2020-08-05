@@ -1,3 +1,7 @@
+body {
+  background: #f7f7f7;
+}
+
 .layout-container {
   max-width: 80rem;
   margin-left: auto;
@@ -10,11 +14,11 @@
   margin: 0 auto;
   padding-top: 5rem;
   max-width: 60rem;
-  min-height: 0;
+  min-height: 100vh;
 }
 
-.layout-main .homepage {
-  min-height: 100vh;
+.homepage {
+  min-height: 0;
 }
 
 .layout-main figure {
