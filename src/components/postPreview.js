@@ -4,7 +4,7 @@ import styled from "styled-components"
 import Truncate from "react-truncate"
 import Img from "gatsby-image"
 
-import "../styles/PostPreview.css"
+import "../styles/postPreview.css"
 
 const PostPreview = ({
   excerpt,
