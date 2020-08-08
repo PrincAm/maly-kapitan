@@ -33,9 +33,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-cloudinary-image-gallery`,
       options: {
-        cloudName: process.env.CLOUDINARY_CLOUDNAME,
-        apiKey: process.env.CLOUDINARY_API_KEY,
-        apiSecret: process.env.CLOUDINARY_API_SECRET,
+        cloudName: process.env.GATSBY_CLOUDINARY_CLOUDNAME,
+        apiKey: process.env.GATSBY_CLOUDINARY_API_KEY,
+        apiSecret: process.env.GATSBY_CLOUDINARY_API_SECRET,
         folders: ["gatsby"],
       },
     },
