@@ -23,6 +23,10 @@ const WelcomeContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media (max-width: 767px) {
+    padding-top: 15rem;
+    text-align: center;
+  }
 `
 
 const MainParagraph = styled(animated.div)`
@@ -32,6 +36,11 @@ const MainParagraph = styled(animated.div)`
   font-weight: 800;
   text-transform: uppercase;
   margin-bottom: 0.5rem;
+  @media (max-width: 767px) {
+    line-height: 2.4rem;
+    font-size: 1.8em;
+    margin: 0 1rem;
+  }
 `
 
 const SecondaryParagraph = styled(animated.div)`
@@ -40,6 +49,11 @@ const SecondaryParagraph = styled(animated.div)`
   font-size: 2em;
   font-weight: 800;
   margin-bottom: 0.4rem;
+  @media (max-width: 767px) {
+    line-height: 1.8rem;
+    font-size: 1.5em;
+    margin: 0 1rem;
+  }
 `
 
 const GreenText = styled.span`

@@ -41,3 +41,9 @@
   color: #000;
   transition: color 0.5s ease;
 }
+
+@media (max-width: 767px) {
+  .footer-container {
+    margin: 0 1rem;
+  }
+}

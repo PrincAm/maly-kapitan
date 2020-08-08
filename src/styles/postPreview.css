@@ -4,7 +4,8 @@
 }
 
 .post-preview-img {
-  flex-shrink: 0;
+  width: 9rem;
+  height: 9rem;
 }
 
 .post-preview-content {

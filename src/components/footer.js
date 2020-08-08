@@ -24,7 +24,7 @@ const Footer = () => {
   return (
     <footer className="footer-container">
       <div className="footer-copyright">
-        © 2020, malykapitan.cz
+        © 2020 malykapitan.cz
         <div>
           <a
             className="footer-mail"

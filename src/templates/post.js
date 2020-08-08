@@ -5,6 +5,7 @@ import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import "../styles/post.css"
 
 const Title = styled.h1`
   margin-bottom: 0.3rem;
@@ -17,8 +18,8 @@ const Date = styled.div`
 `
 
 const ImgWrapper = styled.div`
-  text-align: center;
-  margin-bottom: 0.5rem;
+  margin: 0 auto 0.5rem auto;
+  max-width: 30rem;
 `
 
 const Post = ({ data }) => {
@@ -27,18 +28,20 @@ const Post = ({ data }) => {
   return (
     <Layout>
       <SEO title={title} />
-      <Title>{title}</Title>
-      <Date>{date}</Date>
-      {featured_media && (
-        <ImgWrapper>
-          <Img
-            resolutions={featured_media.localFile.childImageSharp.resolutions}
-            key={featured_media.localFile.childImageSharp.resolutions.src}
-          />
-        </ImgWrapper>
-      )}
-      <div dangerouslySetInnerHTML={{ __html: content }} />
-      <Link to={`/blog`}>&larr; Zpátky na blog</Link>
+      <div className="post-container">
+        <Title>{title}</Title>
+        <Date>{date}</Date>
+        {featured_media && (
+          <ImgWrapper>
+            <Img
+              fluid={featured_media.localFile.childImageSharp.fluid}
+              key={featured_media.localFile.childImageSharp.fluid.src}
+            />
+          </ImgWrapper>
+        )}
+        <div dangerouslySetInnerHTML={{ __html: content }} />
+        <Link to={`/blog`}>&larr; Zpátky na blog</Link>
+      </div>
     </Layout>
   )
 }
@@ -55,8 +58,8 @@ export const postQuery = graphql`
         id
         localFile {
           childImageSharp {
-            resolutions(width: 400, height: 400) {
-              ...GatsbyImageSharpResolutions_withWebp_tracedSVG
+            fluid(quality: 90, maxWidth: 400) {
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
             }
           }
         }

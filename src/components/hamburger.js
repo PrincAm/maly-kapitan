@@ -13,6 +13,9 @@ const HamburgerContainer = styled.div`
   flex-direction: column;
   z-index: 10;
   margin: 2rem 5rem 0 0;
+  @media (max-width: 767px) {
+    margin: 2.3rem 2rem 0 0;
+  }
 `
 
 const Bar = styled.div`
@@ -20,9 +23,12 @@ const Bar = styled.div`
   width: 2.2rem;
   height: 0.2rem;
   background-color: ${({ isMenuOpened }) =>
-    isMenuOpened ? "#f7f7f7" : "#363636"};
+    isMenuOpened ? "#f7f7f7" : "#000"};
   margin-bottom: 0.4rem;
   transition: 0.5s;
+  @media (max-width: 767px) {
+    height: 0.25rem;
+  }
 `
 
 const FirstBar = styled(Bar)`
@@ -38,6 +44,10 @@ const SecondBar = styled(Bar)`
 const ThirdBar = styled(Bar)`
   transform: ${({ isMenuOpened }) =>
     isMenuOpened ? "rotate(45deg) translate(-0.40rem, -0.40rem)" : "none"};
+  @media (max-width: 767px) {
+    transform: ${({ isMenuOpened }) =>
+      isMenuOpened ? "rotate(45deg) translate(-0.45rem, -0.45rem)" : "none"};
+  }
 `
 
 const Hamburger = ({ onOpenMenu, isMenuOpened }) => {

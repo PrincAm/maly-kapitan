@@ -27,8 +27,8 @@ const Posts = ({ title, inOnWelcomePage }) => {
               id
               localFile {
                 childImageSharp {
-                  resolutions(width: 200, height: 200) {
-                    ...GatsbyImageSharpResolutions_withWebp_tracedSVG
+                  fluid(quality: 90, maxWidth: 200) {
+                    ...GatsbyImageSharpFluid_withWebp_tracedSVG
                   }
                 }
               }
@@ -38,13 +38,14 @@ const Posts = ({ title, inOnWelcomePage }) => {
       }
       placeholderImage: file(relativePath: { eq: "captain.jpg" }) {
         childImageSharp {
-          resolutions(width: 200, height: 200) {
-            ...GatsbyImageSharpResolutions_withWebp_tracedSVG
+          fluid(quality: 90, maxWidth: 200) {
+            ...GatsbyImageSharpFluid_withWebp_tracedSVG
           }
         }
       }
     }
   `)
+
   const numberOfPreviews = inOnWelcomePage
     ? 3
     : data.allWordpressPost.edges.length

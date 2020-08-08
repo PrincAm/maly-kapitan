@@ -1,0 +1,5 @@
+@media (max-width: 767px) {
+  .post-container {
+    margin: 0 1rem;
+  }
+}

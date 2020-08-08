@@ -11,3 +11,9 @@
 .posts-title {
   margin-bottom: 1rem;
 }
+
+@media (max-width: 767px) {
+  .posts-container {
+    margin: 0 1rem;
+  }
+}

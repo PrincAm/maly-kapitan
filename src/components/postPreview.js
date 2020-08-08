@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from "gatsby"
-import styled from "styled-components"
 import Truncate from "react-truncate"
 import Img from "gatsby-image"
 
@@ -21,14 +20,14 @@ const PostPreview = ({
         {imageSharp ? (
           <Img
             className="post-preview-img"
-            resolutions={imageSharp.resolutions}
-            key={imageSharp.resolutions.src}
+            fluid={imageSharp.fluid}
+            key={imageSharp.fluid.src}
           />
         ) : (
           <Img
             className="post-preview-img"
-            resolutions={defaultImage.childImageSharp.resolutions}
-            key={defaultImage.childImageSharp.resolutions.src}
+            fluid={defaultImage.childImageSharp.fluid}
+            key={defaultImage.childImageSharp.fluid.src}
           />
         )}
       </Link>
