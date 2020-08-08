@@ -1,3 +1,9 @@
 .gallery-control {
   border: none;
 }
+
+@media (max-width: 767px) {
+  .gallery-title {
+    margin-left: 1rem;
+  }
+}
