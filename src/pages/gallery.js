@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, StaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
 import ImageGallery from "gatsby-plugin-cloudinary-image-gallery"
 
@@ -16,37 +16,60 @@ const ImageGalleryWrapper = styled.div`
   }
 `
 
-const Gallery = ({ folder, columns, orientation }) => (
-  <Layout>
-    <SEO title="Galerie" />
-    <Title>Galerie</Title>
-    <StaticQuery
-      query={imageGalleryQuery}
-      render={data => (
-        <ImageGalleryWrapper>
-          <ImageGallery folder="gatsby" data={data} orientation="square" />
-        </ImageGalleryWrapper>
-      )}
-    />
-  </Layout>
-)
-
-const imageGalleryQuery = graphql`
-  query galleryQuery {
-    cloudinaryImage: allCloudinaryImage {
-      edges {
-        node {
-          id
-          folder
-          thumb
-          imgUrl
-          width
-          height
-          orientation
+const Gallery = ({ folder, columns, orientation }) => {
+  const data = useStaticQuery(graphql`
+    query galleryQuery {
+      cloudinaryImage: allCloudinaryImage {
+        edges {
+          node {
+            id
+            folder
+            thumb
+            imgUrl
+            width
+            height
+            orientation
+          }
         }
       }
     }
-  }
-`
+  `)
+
+  console.log("DATA")
+  console.log(data)
+
+  return (
+    <Layout>
+      <SEO title="Galerie" />
+      <Title>Galerie</Title>
+      {/* <StaticQuery
+        query={imageGalleryQuery}
+        render={data => (
+          <ImageGalleryWrapper>
+            <ImageGallery folder="gatsby" data={data} orientation="square" />
+          </ImageGalleryWrapper>
+        )}
+      /> */}
+    </Layout>
+  )
+}
+
+// const imageGalleryQuery = graphql`
+//   query galleryQuery {
+//     cloudinaryImage: allCloudinaryImage {
+//       edges {
+//         node {
+//           id
+//           folder
+//           thumb
+//           imgUrl
+//           width
+//           height
+//           orientation
+//         }
+//       }
+//     }
+//   }
+// `
 
 export default Gallery
