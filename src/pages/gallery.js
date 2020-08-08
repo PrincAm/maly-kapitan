@@ -42,6 +42,7 @@ const Gallery = ({ folder, columns, orientation }) => {
     <Layout>
       <SEO title="Galerie" />
       <Title>Galerie</Title>
+      <div>{JSON.stringify(data)}</div>
       {/* <StaticQuery
         query={imageGalleryQuery}
         render={data => (
