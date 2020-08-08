@@ -18,22 +18,18 @@ const ImageGalleryWrapper = styled.div`
 
 const Gallery = ({ folder, columns, orientation }) => {
   const data = useStaticQuery(graphql`
-    query galleryQuery {
-      cloudinaryImage: allCloudinaryImage {
+    query CloudinaryImage {
+      allCloudinaryMedia {
         edges {
           node {
-            id
-            folder
-            thumb
-            imgUrl
-            width
-            height
-            orientation
+            secure_url
           }
         }
       }
     }
   `)
+
+  const clImages = data.allCloudinaryMedia.edges
 
   console.log("DATA")
   console.log(data)
@@ -42,6 +38,7 @@ const Gallery = ({ folder, columns, orientation }) => {
     <Layout>
       <SEO title="Galerie" />
       <Title>Galerie</Title>
+      <div>raw data</div>
       <div>{JSON.stringify(data)}</div>
       {/* <StaticQuery
         query={imageGalleryQuery}
@@ -51,6 +48,13 @@ const Gallery = ({ folder, columns, orientation }) => {
           </ImageGalleryWrapper>
         )}
       /> */}
+      <div className="image-grid">
+        {clImages.map((image, index) => (
+          <div className="image-item" key={`${index}-cl`}>
+            <img src={image.node.secure_url} alt={"no alt :("} />
+          </div>
+        ))}
+      </div>
     </Layout>
   )
 }

@@ -31,12 +31,13 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-cloudinary-image-gallery`,
+      resolve: `gatsby-source-cloudinary`,
       options: {
         cloudName: "dznxs2k2a", //process.env.GATSBY_CLOUDINARY_CLOUDNAME,
         apiKey: "119873996435698", //process.env.GATSBY_CLOUDINARY_API_KEY,
         apiSecret: "9LP39DlxYhQ7rfKvcraUAVeVJjg", //process.env.GATSBY_CLOUDINARY_API_SECRET,
-        folders: ["gatsby"],
+        resourceType: `image`,
+        prefix: `gatsby/`,
       },
     },
     {
