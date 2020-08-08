@@ -72,7 +72,7 @@ module.exports = {
         background_color: "#F7F7F7",
         theme_color: "#F7F7F7",
         display: "standalone",
-        // icon: "src/images/logo_small.png",
+        icon: "src/images/logo_small.png",
       },
     },
   ],
