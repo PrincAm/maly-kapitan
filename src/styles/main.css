@@ -12,13 +12,17 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  padding-top: 5rem;
+  padding-top: 6rem;
+  padding-bottom: 2rem;
   max-width: 60rem;
   min-height: 100vh;
 }
 
 .homepage {
-  min-height: 0;
+  padding-top: 0;
+  margin: auto;
+  max-width: none;
+  min-height: none;
 }
 
 .layout-main figure {

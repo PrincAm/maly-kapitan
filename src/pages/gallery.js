@@ -58,16 +58,14 @@ const Gallery = ({ folder, columns, orientation }) => {
     <Layout>
       <SEO title="Galerie" />
       <Title>Galerie</Title>
-      <div className="gallery-container">
-        <ImageGallery photos={photos} onClick={openViewer} />
-        <ReactBnbGallery
-          showThumbnails={false}
-          activePhotoIndex={currentImage}
-          show={isViewerOpened}
-          photos={photos}
-          onClose={() => setViewerOpened(false)}
-        />
-      </div>
+      <ImageGallery photos={photos} onClick={openViewer} />
+      <ReactBnbGallery
+        showThumbnails={false}
+        activePhotoIndex={currentImage}
+        show={isViewerOpened}
+        photos={photos}
+        onClose={() => setViewerOpened(false)}
+      />
     </Layout>
   )
 }

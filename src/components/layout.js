@@ -23,7 +23,6 @@ const Layout = ({ isOnHomePage, children }) => {
   return (
     <div className="layout-container">
       <Header siteTitle={data.site.siteMetadata.title} />
-      {isOnHomePage && <Welcome />}
       <main className={classNames("layout-main", { homepage: isOnHomePage })}>
         {children}
       </main>
