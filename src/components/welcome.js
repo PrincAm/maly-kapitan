@@ -139,6 +139,7 @@ const Welcome = () => {
               case "init":
                 return (
                   <MainParagraph key={key} style={props}>
+                    <div>{process.env.CLOUDINARY_CLOUDNAME}</div>
                     {item.text}
                   </MainParagraph>
                 )
