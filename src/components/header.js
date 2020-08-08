@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 import { graphql, useStaticQuery, Link } from "gatsby"
 import Img from "gatsby-image"
+import classNames from "classnames"
 
 import logo from "../images/logo.png"
 import Hamburger from "./hamburger"
@@ -9,7 +10,7 @@ import Menu from "./menu"
 
 import "../styles/header.css"
 
-const Header = ({ siteTitle }) => {
+const Header = ({ siteTitle, isScrolled }) => {
   const data = useStaticQuery(graphql`
     query {
       logo: file(relativePath: { eq: "logo.png" }) {
@@ -42,7 +43,11 @@ const Header = ({ siteTitle }) => {
             fluid={data.logo.childImageSharp.fluid}
             className="header-logo"
           />
-          <span className="header-companyName">malý kapitán</span>
+          <span
+            className={classNames("header-companyName", { hidden: isScrolled })}
+          >
+            malý kapitán
+          </span>
         </div>
       </Link>
       <Hamburger isMenuOpened={isMenuOpened} onOpenMenu={setMenuOpened} />

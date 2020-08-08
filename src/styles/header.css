@@ -26,6 +26,11 @@
   font-weight: 800;
   text-transform: uppercase;
   margin-left: 0.5rem;
+  transition: opacity 0.35s ease-in-out;
+}
+
+.hidden {
+  opacity: 0;
 }
 
 @media (max-width: 767px) {
