@@ -1,10 +1,14 @@
-import React from "react"
+import React, { useState, useCallback } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
-import ImageGallery from "gatsby-plugin-cloudinary-image-gallery"
+import ImageGallery from "react-photo-gallery"
+import ReactBnbGallery from "react-bnb-gallery"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+
+import "../styles/gallery.css"
+import "react-bnb-gallery/dist/style.css"
 
 const Title = styled.h1`
   margin-bottom: 1rem;
@@ -23,58 +27,49 @@ const Gallery = ({ folder, columns, orientation }) => {
         edges {
           node {
             secure_url
+            width
+            height
           }
         }
       }
     }
   `)
 
-  const clImages = data.allCloudinaryMedia.edges
+  const [currentImage, setCurrentImage] = useState(0)
+  const [isViewerOpened, setViewerOpened] = useState(false)
 
-  console.log("DATA")
-  console.log(data)
+  const openViewer = useCallback((event, { photo, index }) => {
+    setCurrentImage(index)
+    setViewerOpened(true)
+  }, [])
+
+  const photos = data.allCloudinaryMedia.edges.map((image, index) => {
+    return {
+      src: image.node.secure_url,
+      width: image.node.width,
+      height: image.node.height,
+
+      photo: image.node.secure_url,
+      number: index,
+    }
+  })
 
   return (
     <Layout>
       <SEO title="Galerie" />
       <Title>Galerie</Title>
-      <div>raw data</div>
-      <div>{JSON.stringify(data)}</div>
-      {/* <StaticQuery
-        query={imageGalleryQuery}
-        render={data => (
-          <ImageGalleryWrapper>
-            <ImageGallery folder="gatsby" data={data} orientation="square" />
-          </ImageGalleryWrapper>
-        )}
-      /> */}
-      <div className="image-grid">
-        {clImages.map((image, index) => (
-          <div className="image-item" key={`${index}-cl`}>
-            <img src={image.node.secure_url} alt={"no alt :("} />
-          </div>
-        ))}
+      <div className="gallery-container">
+        <ImageGallery photos={photos} onClick={openViewer} />
+        <ReactBnbGallery
+          showThumbnails={false}
+          activePhotoIndex={currentImage}
+          show={isViewerOpened}
+          photos={photos}
+          onClose={() => setViewerOpened(false)}
+        />
       </div>
     </Layout>
   )
 }
-
-// const imageGalleryQuery = graphql`
-//   query galleryQuery {
-//     cloudinaryImage: allCloudinaryImage {
-//       edges {
-//         node {
-//           id
-//           folder
-//           thumb
-//           imgUrl
-//           width
-//           height
-//           orientation
-//         }
-//       }
-//     }
-//   }
-// `
 
 export default Gallery

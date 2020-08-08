@@ -33,9 +33,9 @@ module.exports = {
     {
       resolve: `gatsby-source-cloudinary`,
       options: {
-        cloudName: "dznxs2k2a", //process.env.GATSBY_CLOUDINARY_CLOUDNAME,
-        apiKey: "119873996435698", //process.env.GATSBY_CLOUDINARY_API_KEY,
-        apiSecret: "9LP39DlxYhQ7rfKvcraUAVeVJjg", //process.env.GATSBY_CLOUDINARY_API_SECRET,
+        cloudName: process.env.CLOUDINARY_CLOUDNAME,
+        apiKey: process.env.CLOUDINARY_API_KEY,
+        apiSecret: process.env.CLOUDINARY_API_SECRET,
         resourceType: `image`,
         prefix: `gatsby/`,
       },
@@ -73,7 +73,7 @@ module.exports = {
         background_color: "#F7F7F7",
         theme_color: "#F7F7F7",
         display: "standalone",
-        // icon: "src/images/logo_small.png",
+        icon: "src/images/logo_small.png",
       },
     },
   ],
