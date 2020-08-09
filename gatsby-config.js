@@ -77,5 +77,6 @@ module.exports = {
         icon: "src/images/logo_small.png",
       },
     },
+    "gatsby-plugin-styled-components",
   ],
 }
