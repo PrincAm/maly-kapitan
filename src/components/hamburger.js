@@ -63,6 +63,6 @@ const Hamburger = ({ onOpenMenu, isMenuOpened }) => {
 export default Hamburger
 
 Hamburger.propTypes = {
-  onOpenMenu: PropTypes.bool.isRequired,
-  isMenuOpened: PropTypes.func.isRequired,
+  onOpenMenu: PropTypes.func.isRequired,
+  isMenuOpened: PropTypes.bool.isRequired,
 }

@@ -34,7 +34,7 @@ const Footer = () => {
           </a>
         </div>
       </div>
-      <Link to="">
+      <Link to="/">
         <Img fluid={data.logo.childImageSharp.fluid} className="footer-logo" />
       </Link>
       <div className="footer-iconLinks">

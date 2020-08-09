@@ -52,8 +52,12 @@ const Layout = ({ isOnHomePage, children }) => {
 }
 
 Layout.propTypes = {
-  isOnHomePage: PropTypes.bool.isRequired,
   children: PropTypes.node.isRequired,
+  isOnHomePage: PropTypes.bool,
+}
+
+Layout.defaultProps = {
+  isOnHomePage: false,
 }
 
 export default Layout

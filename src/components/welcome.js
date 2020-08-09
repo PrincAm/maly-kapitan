@@ -21,6 +21,8 @@ const WelcomeContainer = styled.div`
   @media (max-width: 767px) {
     padding-top: 15rem;
     text-align: center;
+    align-items: center;
+    margin-left: 0;
   }
 `
 
@@ -89,7 +91,7 @@ const bounce = keyframes`
 const Arrow = styled(ArrowIcon)`
   height: 2rem;
   width: 2rem;
-  animation: ${bounce} 2.5s 3;
+  animation: ${bounce} 2.5s 4;
 `
 
 const Blog = styled.span`
