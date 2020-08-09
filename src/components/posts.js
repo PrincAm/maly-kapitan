@@ -1,9 +1,8 @@
 import React from "react"
-import { graphql, useStaticQuery, Link } from "gatsby"
+import PropTypes from "prop-types"
+import { graphql, useStaticQuery } from "gatsby"
 import classNames from "classnames"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
 import PostPreview from "../components/postPreview"
 
 import "../styles/posts.css"
@@ -72,3 +71,8 @@ const Posts = ({ title, inOnWelcomePage }) => {
 }
 
 export default Posts
+
+Posts.propTypes = {
+  title: PropTypes.string.isRequired,
+  inOnWelcomePage: PropTypes.bool.isRequired,
+}

@@ -4,7 +4,6 @@ import { graphql, useStaticQuery, Link } from "gatsby"
 import Img from "gatsby-image"
 import classNames from "classnames"
 
-import logo from "../images/logo.png"
 import Hamburger from "./hamburger"
 import Menu from "./menu"
 
@@ -57,6 +56,7 @@ const Header = ({ siteTitle, isScrolled }) => {
 }
 
 Header.propTypes = {
+  isScrolled: PropTypes.bool.isRequired,
   siteTitle: PropTypes.string,
 }
 

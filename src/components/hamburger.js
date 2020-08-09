@@ -1,5 +1,5 @@
 import PropTypes from "prop-types"
-import React, { useState } from "react"
+import React from "react"
 import styled from "styled-components"
 
 const HamburgerContainer = styled.div`
@@ -61,3 +61,8 @@ const Hamburger = ({ onOpenMenu, isMenuOpened }) => {
 }
 
 export default Hamburger
+
+Hamburger.propTypes = {
+  onOpenMenu: PropTypes.bool.isRequired,
+  isMenuOpened: PropTypes.func.isRequired,
+}

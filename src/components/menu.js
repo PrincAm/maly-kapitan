@@ -1,5 +1,4 @@
-import React, { useState, useRef } from "react"
-import PropTypes from "prop-types"
+import React, { useRef } from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import styled, { css } from "styled-components"
 import {
@@ -123,17 +122,26 @@ const Mail = styled.a`
 const SocialMedias = () => (
   <Links>
     <SocialMediasContainer>
-      <a href="https://www.facebook.com/malyKapitan/" target="_blank">
+      <a
+        href="https://www.facebook.com/malyKapitan/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <FacebookIcon />
       </a>
       <a
         href="https://www.instagram.com/littlecaptain_and_burrrka/"
         target="_blank"
+        rel="noopener noreferrer"
       >
         <InstagramIcon />
       </a>
     </SocialMediasContainer>
-    <Mail href="mailto:info@malykapitan.cz" target="_blank">
+    <Mail
+      href="mailto:info@malykapitan.cz"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       info@malykapitan.cz
     </Mail>
   </Links>

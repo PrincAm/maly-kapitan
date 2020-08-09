@@ -1,9 +1,7 @@
-import PropTypes from "prop-types"
 import React from "react"
 import { graphql, useStaticQuery, Link } from "gatsby"
 import Img from "gatsby-image"
 
-import logo from "../images/logo.png"
 import FacebookIcon from "../images/svgs/facebook-square-brands.svg"
 import InstagramIcon from "../images/svgs/instagram-brands.svg"
 
@@ -30,6 +28,7 @@ const Footer = () => {
             className="footer-mail"
             href="mailto:info@malykapitan.cz"
             target="_blank"
+            rel="noopener noreferrer"
           >
             info@malykapitan.cz
           </a>
@@ -39,12 +38,17 @@ const Footer = () => {
         <Img fluid={data.logo.childImageSharp.fluid} className="footer-logo" />
       </Link>
       <div className="footer-iconLinks">
-        <a href="https://www.facebook.com/malyKapitan/" target="_blank">
+        <a
+          href="https://www.facebook.com/malyKapitan/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <FacebookIcon className="footer-socialMedia-icon" />
         </a>
         <a
           href="https://www.instagram.com/littlecaptain_and_burrrka/"
           target="_blank"
+          rel="noopener noreferrer"
         >
           <InstagramIcon className="footer-socialMedia-icon" />
         </a>

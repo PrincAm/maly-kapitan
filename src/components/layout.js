@@ -4,7 +4,6 @@ import { useStaticQuery, graphql } from "gatsby"
 import classNames from "classnames"
 
 import Header from "./header"
-import Welcome from "./welcome"
 import Footer from "./footer"
 
 import "../styles/main.css"
@@ -53,6 +52,7 @@ const Layout = ({ isOnHomePage, children }) => {
 }
 
 Layout.propTypes = {
+  isOnHomePage: PropTypes.bool.isRequired,
   children: PropTypes.node.isRequired,
 }
 

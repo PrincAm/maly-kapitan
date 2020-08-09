@@ -1,18 +1,12 @@
 import { graphql, useStaticQuery } from "gatsby"
-import PropTypes from "prop-types"
 import React, { useState, useEffect, useRef } from "react"
-import styled from "styled-components"
-import {
-  animated,
-  useTransition,
-  useSpring,
-  useChain,
-  config,
-} from "react-spring"
+import styled, { keyframes } from "styled-components"
+import { animated, useTransition } from "react-spring"
 import BackgroundImage from "gatsby-background-image"
 
 import SEO from "./seo"
 import Posts from "./posts"
+import ArrowIcon from "../images/svgs/arrow-down-regular.svg"
 
 const WelcomeContainer = styled.div`
   position: relative;
@@ -22,7 +16,8 @@ const WelcomeContainer = styled.div`
   padding-top: 20rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  margin-left: 10%;
   @media (max-width: 767px) {
     padding-top: 15rem;
     text-align: center;
@@ -31,7 +26,7 @@ const WelcomeContainer = styled.div`
 
 const MainParagraph = styled(animated.div)`
   line-height: 5rem;
-  color: palevioletred;
+  color: #363636;
   font-size: 4.5em;
   font-weight: 800;
   text-transform: uppercase;
@@ -45,10 +40,11 @@ const MainParagraph = styled(animated.div)`
 
 const SecondaryParagraph = styled(animated.div)`
   line-height: 2.3rem;
-  color: palevioletred;
+  color: #fff;
   font-size: 2em;
   font-weight: 800;
   margin-bottom: 0.4rem;
+  text-transform: uppercase;
   @media (max-width: 767px) {
     line-height: 1.8rem;
     font-size: 1.5em;
@@ -57,27 +53,48 @@ const SecondaryParagraph = styled(animated.div)`
 `
 
 const GreenText = styled.span`
-  color: #4f868e;
+  color: #8de4f0;
 `
 
 const PostsWrapper = styled.div`
   min-height: 100vh;
 `
 
-const Arrow = styled.div`
-  box-sizing: border-box;
-  height: 5vw;
-  width: 5vw;
-  border-style: solid;
-  border-color: #4f868e;
-  border-width: 0px 3px 3px 0px;
-  transform: rotate(45deg);
-  transition: border-width 150ms ease-in-out;
+const ArrowContainer = styled.div`
+  margin-top: 3rem;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  transition: color 0.5s ease;
   &:hover {
-    border-bottom-width: 4px;
-    border-right-width: 4px;
     cursor: pointer;
+    color: #363636;
   }
+`
+
+const bounce = keyframes`
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0px);
+  }
+
+  40% {
+    transform: translateY(-15px);
+  }
+
+  60% {
+    transform: translateY(-5px);
+}
+`
+
+const Arrow = styled(ArrowIcon)`
+  height: 2rem;
+  width: 2rem;
+  animation: ${bounce} 2.5s 3;
+`
+
+const Blog = styled.span`
+  font-size: 1.2rem;
+  margin-left: 0.5rem;
 `
 
 const texts = [
@@ -159,8 +176,11 @@ const Welcome = () => {
 
               case "button":
                 return (
-                  <animated.div key={key} style={props}>
-                    <Arrow onClick={handleScroll} />
+                  <animated.div key={key} style={props} onClick={handleScroll}>
+                    <ArrowContainer>
+                      <Arrow />
+                      <Blog>Nové příspěvky na blogu</Blog>
+                    </ArrowContainer>
                   </animated.div>
                 )
 

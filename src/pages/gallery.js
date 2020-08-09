@@ -14,12 +14,6 @@ const Title = styled.h1`
   margin-bottom: 1rem;
 `
 
-const ImageGalleryWrapper = styled.div`
-  &:hover a {
-    cursor: pointer;
-  }
-`
-
 const Gallery = ({ folder, columns, orientation }) => {
   const data = useStaticQuery(graphql`
     query CloudinaryImage {

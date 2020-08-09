@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import Truncate from "react-truncate"
 import Img from "gatsby-image"
@@ -45,3 +46,12 @@ const PostPreview = ({
 }
 
 export default PostPreview
+
+PostPreview.propTypes = {
+  excerpt: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
+  featuredMedia: PropTypes.shape({}),
+  defaultImage: PropTypes.shape({}),
+}
