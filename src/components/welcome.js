@@ -139,7 +139,7 @@ const Welcome = () => {
   })
 
   return (
-    <div style={{ minHeight: "100vh", minWidth: "100%" }}>
+    <div>
       <SEO title="Home" />
       <BackgroundImage
         tag="section"
@@ -148,6 +148,7 @@ const Welcome = () => {
         id="malykapitan.cz"
         role="img"
         aria-label="black dog"
+        className="welcome-backgroundImage"
       >
         <div className="welcome-container">
           {paragraphsTransition.map(({ item, props, key }) => {
