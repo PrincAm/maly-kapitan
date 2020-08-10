@@ -162,7 +162,9 @@ const icons = [
 ]
 
 const prepareMenuItems = edges => {
-  const items = edges.map(node => node.node)
+  const items = edges
+    .sort((a, b) => a.node.menu_order - b.node.menu_order)
+    .map(node => node.node)
   items.push(
     {
       id: "blog",
@@ -192,6 +194,7 @@ const Menu = ({ isMenuOpened, onMenuOpen }) => {
             id
             slug
             title
+            menu_order
           }
         }
       }

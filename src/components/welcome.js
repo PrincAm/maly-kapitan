@@ -8,22 +8,7 @@ import SEO from "./seo"
 import Posts from "./posts"
 import ArrowIcon from "../images/svgs/arrow-down-regular.svg"
 
-const WelcomeContainer = styled.div`
-  position: relative;
-  min-height: 100vh;
-  background-image: url("../../images/cover.jpg");
-  padding-top: 20rem;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-left: 10%;
-  @media (max-width: 767px) {
-    padding-top: 15rem;
-    text-align: center;
-    align-items: center;
-    margin-left: 0;
-  }
-`
+import "../styles/welcome.css"
 
 const MainParagraph = styled(animated.div)`
   line-height: 5rem;
@@ -164,7 +149,7 @@ const Welcome = () => {
         role="img"
         aria-label="black dog"
       >
-        <WelcomeContainer>
+        <div className="welcome-container">
           {paragraphsTransition.map(({ item, props, key }) => {
             switch (item.id) {
               case "init":
@@ -192,7 +177,7 @@ const Welcome = () => {
                 )
             }
           })}
-        </WelcomeContainer>
+        </div>
       </BackgroundImage>
       <PostsWrapper ref={postsRef}>
         <Posts title="Poslední příspěvky" inOnWelcomePage />
