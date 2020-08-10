@@ -139,7 +139,7 @@ const Welcome = () => {
   })
 
   return (
-    <div style={{ minHeight: "100vh" }}>
+    <div style={{ minHeight: "100vh", minWidth: "100%" }}>
       <SEO title="Home" />
       <BackgroundImage
         tag="section"
