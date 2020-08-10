@@ -1,11 +1,11 @@
 .posts-container {
-  margin: 0 auto;
   max-width: 60rem;
   padding-top: 0;
 }
 
 .welcome {
   padding-top: 5rem;
+  margin: 0 auto;
 }
 
 .posts-title {
