@@ -17,7 +17,7 @@ const Nav = styled(animated.nav)`
   position: absolute;
   top: 0;
   left: 0;
-  background: pink; /* TODO change bg color */
+  background: pink;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -67,6 +67,7 @@ const IconsContainer = styled.div`
   margin-right: 10rem;
   @media (max-width: 767px) {
     margin-right: 2rem;
+    flex-direction: row;
   }
 `
 
@@ -75,6 +76,8 @@ const LogoImage = styled.img`
   width: 14rem;
   @media (max-width: 767px) {
     margin-left: 2rem;
+    height: 10rem;
+    width: 10rem;
   }
 `
 

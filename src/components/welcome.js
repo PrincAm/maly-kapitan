@@ -10,7 +10,6 @@ import ArrowIcon from "../images/svgs/arrow-down-regular.svg"
 
 const WelcomeContainer = styled.div`
   position: relative;
-  width: 100%;
   min-height: 100vh;
   background-image: url("../../images/cover.jpg");
   padding-top: 20rem;
@@ -28,7 +27,7 @@ const WelcomeContainer = styled.div`
 
 const MainParagraph = styled(animated.div)`
   line-height: 5rem;
-  color: #363636;
+  color: palevioletred;
   font-size: 4.5em;
   font-weight: 800;
   text-transform: uppercase;
@@ -42,11 +41,10 @@ const MainParagraph = styled(animated.div)`
 
 const SecondaryParagraph = styled(animated.div)`
   line-height: 2.3rem;
-  color: #fff;
+  color: palevioletred;
   font-size: 2em;
   font-weight: 800;
   margin-bottom: 0.4rem;
-  text-transform: uppercase;
   @media (max-width: 767px) {
     line-height: 1.8rem;
     font-size: 1.5em;
@@ -55,7 +53,7 @@ const SecondaryParagraph = styled(animated.div)`
 `
 
 const GreenText = styled.span`
-  color: #8de4f0;
+  color: #4f868e;
 `
 
 const PostsWrapper = styled.div`
@@ -66,11 +64,11 @@ const ArrowContainer = styled.div`
   margin-top: 3rem;
   display: flex;
   align-items: center;
-  color: #fff;
+  color: palevioletred;
   transition: color 0.5s ease;
   &:hover {
     cursor: pointer;
-    color: #363636;
+    color: #4f868e;
   }
 `
 
