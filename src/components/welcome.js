@@ -2,7 +2,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import React, { useState, useEffect, useRef } from "react"
 import styled, { keyframes } from "styled-components"
 import { animated, useTransition } from "react-spring"
-import BackgroundImage from "gatsby-background-image-"
+import BackgroundImage from "gatsby-background-image"
 
 import SEO from "./seo"
 import Posts from "./posts"
