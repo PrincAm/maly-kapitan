@@ -9,6 +9,7 @@ module.exports = {
     subtitle: `Mnoho informací, postřehů a fotek`,
   },
   plugins: [
+    "gatsby-plugin-netlify-cache",
     "gatsby-plugin-styled-components",
     {
       resolve: `gatsby-source-wordpress`,
