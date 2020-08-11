@@ -9,6 +9,7 @@ module.exports = {
     subtitle: `Mnoho informací, postřehů a fotek`,
   },
   plugins: [
+    "gatsby-plugin-styled-components",
     {
       resolve: `gatsby-source-wordpress`,
       options: {
@@ -77,6 +78,5 @@ module.exports = {
         icon: "src/images/logo_small.png",
       },
     },
-    "gatsby-plugin-styled-components",
   ],
 }
