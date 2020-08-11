@@ -3,12 +3,12 @@ import altonTheme from "typography-theme-alton"
 
 altonTheme.googleFonts = [
   {
-    name: "Lato",
+    name: "Open Sans",
     styles: ["400", "400i", "600", "700"],
   },
 ]
 
-altonTheme.bodyFontFamily = ["Lato", "sans-serif"]
+altonTheme.bodyFontFamily = ["Open Sans", "sans-serif"]
 altonTheme.baseFontSize = 21
 altonTheme.baseLineHeight = 1.5
 

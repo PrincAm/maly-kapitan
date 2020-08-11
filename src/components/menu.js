@@ -22,6 +22,7 @@ const Nav = styled(animated.nav)`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-top: 1rem;
 
   ul {
     margin: 0;
@@ -36,7 +37,7 @@ const Nav = styled(animated.nav)`
 
 const Li = styled(animated.li)`
   list-style: none;
-  margin-left: 10rem;
+  margin-left: 14vw;
   @media (max-width: 767px) {
     margin-left: 2rem;
   }
@@ -45,7 +46,7 @@ const Li = styled(animated.li)`
     color: #363636;
     text-shadow: none;
     font-size: 4.5rem;
-    font-weight: bold;
+    font-weight: 600;
     text-transform: uppercase;
     text-decoration: none;
     line-height: 4.7rem;
@@ -72,25 +73,25 @@ const IconsContainer = styled.div`
 `
 
 const LogoImage = styled.img`
-  height: 14rem;
-  width: 14rem;
+  max-height: 14rem;
+  max-width: 14rem;
   @media (max-width: 767px) {
     margin-left: 2rem;
-    height: 10rem;
-    width: 10rem;
+    height: 8rem;
+    width: 8rem;
   }
 `
 
 const SocialMediasContainer = styled.div`
   display: flex;
   @media (max-width: 767px) {
-    margin-left: 2rem;
+    margin-left: 1rem;
   }
 `
 
 const SocialMediaIconStyles = css`
-  height: 4.7rem;
-  width: 4.7rem;
+  height: 4.9rem;
+  width: 4.9rem;
   &:hover {
     color: #363636;
     transition: color 0.5s ease;
@@ -117,7 +118,7 @@ const Mail = styled.a`
     transition: color 0.5s ease;
   }
   @media (max-width: 767px) {
-    margin-left: 2rem;
+    margin-left: 1rem;
     margin-bottom: 1rem;
   }
 `

@@ -23,7 +23,7 @@ const Bar = styled.div`
   width: 2.2rem;
   height: 0.2rem;
   background-color: ${({ isMenuOpened }) =>
-    isMenuOpened ? "#f7f7f7" : "#363636"};
+    isMenuOpened ? "#4f868e" : "#363636"};
   margin-bottom: 0.4rem;
   transition: 0.5s;
   @media (max-width: 767px) {
