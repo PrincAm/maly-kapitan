@@ -11,12 +11,6 @@ module.exports = {
   plugins: [
     "gatsby-plugin-styled-components",
     {
-      resolve: `gatsby-plugin-styled-components`,
-      options: {
-        displayName: true,
-      },
-    },
-    {
       resolve: `gatsby-source-wordpress`,
       options: {
         baseUrl: `gilded-strobes.000webhostapp.com`,

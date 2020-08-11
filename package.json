@@ -1,10 +1,13 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "maly-kapitan",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Personal dog website.",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Adam Blazek <blazekadam1@gmail.com>",
   "dependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.11.0",
+    "babel-plugin-styled-components": "^1.11.1",
+    "babel-preset-gatsby": "^0.5.5",
     "classnames": "^2.2.6",
     "core-js": "^3.6.5",
     "gatsby": "^2.17.11",
@@ -23,6 +26,7 @@
     "gatsby-transformer-sharp": "^2.3.5",
     "gatsby-wordpress-inline-images": "1.0.1--beta.4",
     "intersection-observer": "^0.11.0",
+    "prettier": "^1.19.1",
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
     "react-bnb-gallery": "^1.4.4",
@@ -32,16 +36,9 @@
     "react-spring": "^8.0.27",
     "react-truncate": "^2.4.0",
     "react-typography": "^0.16.19",
-    "styled-components": "^4.4.1",
+    "styled-components": "^5.1.1",
     "typography": "^0.16.19",
     "typography-theme-alton": "^0.16.19"
-  },
-  "devDependencies": {
-    "@babel/plugin-proposal-optional-chaining": "^7.11.0",
-    "babel-plugin-styled-components": "^1.11.1",
-    "babel-preset-gatsby": "^0.5.5",
-    "prettier": "^1.19.1",
-    "styled-components": "^5.1.1"
   },
   "keywords": [
     "gatsby"
