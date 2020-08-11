@@ -169,18 +169,18 @@ const prepareMenuItems = edges => {
     {
       id: "blog",
       title: "blog",
-      slug: "/blog",
+      slug: "blog",
     },
     {
       id: "gallery",
       title: "galerie",
-      slug: "/gallery",
+      slug: "gallery",
     }
   )
   items.unshift({
     id: "home",
     title: "domů",
-    slug: "/",
+    slug: "",
   })
   return items
 }
@@ -256,7 +256,7 @@ const Menu = ({ isMenuOpened, onMenuOpen }) => {
       <ul>
         {liTransitions.map(({ item, key, props }) => (
           <Li key={key} style={props}>
-            <Link to={item.slug} onClick={handleLinkClick}>
+            <Link to={`/${item.slug}`} onClick={handleLinkClick}>
               {item.title}
             </Link>
           </Li>
