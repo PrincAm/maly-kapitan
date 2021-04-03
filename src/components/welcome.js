@@ -14,7 +14,7 @@ const MainParagraph = styled(animated.div)`
   line-height: 5rem;
   color: palevioletred;
   font-size: 4.5em;
-  font-weight: 800;
+  font-weight: 600;
   text-transform: uppercase;
   margin-bottom: 0.5rem;
   @media (max-width: 767px) {
@@ -28,7 +28,7 @@ const SecondaryParagraph = styled(animated.div)`
   line-height: 2.3rem;
   color: palevioletred;
   font-size: 2em;
-  font-weight: 800;
+  font-weight: 600;
   margin-bottom: 0.4rem;
   @media (max-width: 767px) {
     line-height: 1.8rem;
