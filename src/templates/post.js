@@ -19,7 +19,7 @@ const Date = styled.div`
 
 const ImgWrapper = styled.div`
   margin: 0 auto 0.5rem auto;
-  max-width: 30rem;
+  max-width: 18rem;
 `
 
 const Post = ({ data }) => {

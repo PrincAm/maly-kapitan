@@ -10,11 +10,15 @@ function SEO({ description, lang, meta, title }) {
         site {
           siteMetadata {
             title
+            subtitle
+            description
           }
         }
       }
     `
   )
+
+  
 
   const metaDescription = description || site.siteMetadata.description
 
@@ -64,9 +68,9 @@ function SEO({ description, lang, meta, title }) {
 }
 
 SEO.defaultProps = {
-  lang: `en`,
+  lang: `cz`,
   meta: [],
-  description: ``,
+  description: `Mnoho informací, postřehů a fotek o psím plemeni šiperka`,
 }
 
 SEO.propTypes = {

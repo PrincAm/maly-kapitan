@@ -5,8 +5,9 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `Malý Kapitán šiperka `,
-    subtitle: `Mnoho informací, postřehů a fotek`,
+    title: 'Malý Kapitán šiperka',
+    subtitle: 'Osobní psí Kapitánovi stránky',
+    description: 'Mnoho informací, postřehů a fotek o psím plemeni šiperka'
   },
   plugins: [
     "gatsby-plugin-netlify-cache",
