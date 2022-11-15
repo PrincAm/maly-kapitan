@@ -54,16 +54,6 @@ export const postQuery = graphql`
       title
       content
       date(formatString: "DD.MM.YYYY")
-      featured_media {
-        id
-        localFile {
-          childImageSharp {
-            fluid(quality: 90, maxWidth: 400) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
-            }
-          }
-        }
-      }
     }
     site {
       siteMetadata {

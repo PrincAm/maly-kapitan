@@ -15,16 +15,16 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        baseUrl: `gilded-strobes.000webhostapp.com`,
-        protocol: `https`,
+        baseUrl: `307424.w24.wedos.ws/data`,
+        protocol: `http`,
         hostingWPCOM: false,
         useACF: true,
         plugins: [
           {
             resolve: `gatsby-wordpress-inline-images`,
             options: {
-              baseUrl: `gilded-strobes.000webhostapp.com`,
-              protocol: `https`,
+              baseUrl: `307424.w24.wedos.ws/data`,
+              protocol: `http`,
               quality: 90,
               maxWidth: 550,
               tracedSVG: true,

@@ -22,16 +22,6 @@ const Posts = ({ title, inOnWelcomePage }) => {
             format
             excerpt
             date(formatString: "DD.MM.YYYY")
-            featured_media {
-              id
-              localFile {
-                childImageSharp {
-                  fluid(quality: 90, maxWidth: 200) {
-                    ...GatsbyImageSharpFluid_withWebp_tracedSVG
-                  }
-                }
-              }
-            }
           }
         }
       }
