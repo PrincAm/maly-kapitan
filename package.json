@@ -10,6 +10,7 @@
     "babel-preset-gatsby": "^0.5.5",
     "classnames": "^2.2.6",
     "core-js": "^3.6.5",
+    "dotenv": "^16.0.3",
     "gatsby": "^5.0.1",
     "gatsby-background-image": "^1.6.0",
     "gatsby-background-image-es5": "^1.6.0",
