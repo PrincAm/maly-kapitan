@@ -1,11 +1,11 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import {graphql, Link} from "gatsby"
 import styled from "styled-components"
-import Img from "gatsby-image"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import "../styles/post.css"
+import {GatsbyImage} from "gatsby-plugin-image";
 
 const Title = styled.h1`
   margin-bottom: 0.3rem;
@@ -17,48 +17,53 @@ const Date = styled.div`
   margin-bottom: 0.5rem;
 `
 
-const ImgWrapper = styled.div`
-  margin: 0 auto 0.5rem auto;
-  max-width: 18rem;
+const FeaturedImage = styled(GatsbyImage)`
+  margin-bottom: 2rem;
 `
 
-const Post = ({ data }) => {
-  const { title, date, content, featured_media } = data.wordpressPost
+const Post = ({data}) => {
+    const {title, date, content, featuredImage} = data.wpPost
 
-  return (
-    <Layout>
-      <SEO title={title} />
-      <div className="post-container">
-        <Title>{title}</Title>
-        <Date>{date}</Date>
-        {featured_media && (
-          <ImgWrapper>
-            <Img
-              fluid={featured_media.localFile.childImageSharp.fluid}
-              key={featured_media.localFile.childImageSharp.fluid.src}
-            />
-          </ImgWrapper>
-        )}
-        <div dangerouslySetInnerHTML={{ __html: content }} />
-        <Link to={`/blog`}>&larr; Zpátky na blog</Link>
-      </div>
-    </Layout>
-  )
+    return (
+        <Layout>
+            <Seo title={title}/>
+            <div className="post-container">
+                <Title>{title}</Title>
+                <Date>{date}</Date>
+                {featuredImage && (
+                    <FeaturedImage
+                        image={featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData}
+                        alt={featuredImage?.node?.alt || ``}
+                    />
+                )}
+                <div dangerouslySetInnerHTML={{__html: content}}/>
+                <Link to={`/blog`}>&larr; Zpátky na blog</Link>
+            </div>
+        </Layout>
+    )
 }
 
 export default Post
 
 export const postQuery = graphql`
   query($id: String!) {
-    wordpressPost(id: { eq: $id }) {
+    wpPost(id: { eq: $id }) {
       title
       content
       date(formatString: "DD.MM.YYYY")
-    }
-    site {
-      siteMetadata {
-        title
-        subtitle
+      featuredImage {
+        node {
+          altText
+          localFile {
+            childImageSharp {
+              gatsbyImageData(
+                quality: 100
+                placeholder: TRACED_SVG
+                layout: FULL_WIDTH
+              )
+            }
+          }
+        }
       }
     }
   }

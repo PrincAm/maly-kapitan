@@ -1,12 +1,12 @@
 import React from "react"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import Posts from "../components/posts"
 
 const Blog = () => (
   <Layout>
-    <SEO title="Blog" />
+    <Seo title="Blog" />
     <Posts title="Blog" />
   </Layout>
 )

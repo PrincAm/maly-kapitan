@@ -5,7 +5,7 @@ import ImageGallery from "react-photo-gallery"
 import ReactBnbGallery from "react-bnb-gallery"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 
 import "../styles/gallery.css"
 import "react-bnb-gallery/dist/style.css"
@@ -50,7 +50,7 @@ const Gallery = ({ folder, columns, orientation }) => {
 
   return (
     <Layout>
-      <SEO title="Galerie" />
+      <Seo title="Galerie" />
       <Title className="gallery-title">Galerie</Title>
       <ImageGallery photos={photos} onClick={openViewer} />
       <ReactBnbGallery

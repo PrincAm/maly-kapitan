@@ -190,13 +190,13 @@ const prepareMenuItems = edges => {
 const Menu = ({ isMenuOpened, onMenuOpen }) => {
   const data = useStaticQuery(graphql`
     query {
-      allWordpressPage {
+      allWpPage {
         edges {
           node {
             id
             slug
             title
-            menu_order
+            menuOrder
           }
         }
       }
@@ -214,7 +214,7 @@ const Menu = ({ isMenuOpened, onMenuOpen }) => {
     to: { width: isMenuOpened ? "100%" : "0%" },
   })
 
-  const menuItems = prepareMenuItems(data.allWordpressPage.edges)
+  const menuItems = prepareMenuItems(data.allWpPage.edges)
   const liTransitions = useTransition(
     isMenuOpened ? menuItems : [],
     item => item.id,
@@ -258,7 +258,7 @@ const Menu = ({ isMenuOpened, onMenuOpen }) => {
       <ul>
         {liTransitions.map(({ item, key, props }) => (
           <Li key={key} style={props}>
-            <Link to={`/${item.slug}`} onClick={handleLinkClick}>
+            <Link to={`/${item.slug}`} onClick={() => handleLinkClick}>
               {item.title}
             </Link>
           </Li>

@@ -22,3 +22,8 @@
   opacity: 0.8;
   margin-bottom: 0.5rem;
 }
+
+.post-preview-image-wrapper {
+  width: 200px;
+  margin-bottom: 0.5rem;
+}

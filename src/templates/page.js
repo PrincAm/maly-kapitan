@@ -2,16 +2,16 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 
 import "../styles/page.css"
 
 const Page = ({ data }) => {
-  const { title, content } = data.wordpressPage
+  const { title, content } = data.wpPage
 
   return (
     <Layout>
-      <SEO title={title} />
+      <Seo title={title} />
       <div className="page-container">
         <h1>{title}</h1>
         <div dangerouslySetInnerHTML={{ __html: content }} />
@@ -24,7 +24,7 @@ export default Page
 
 export const pageQuery = graphql`
   query($id: String!) {
-    wordpressPage(id: { eq: $id }) {
+    wpPage(id: { eq: $id }) {
       title
       content
     }

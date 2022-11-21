@@ -4,7 +4,7 @@ import styled, { keyframes } from "styled-components"
 import { animated, useTransition } from "react-spring"
 import BackgroundImage from "gatsby-background-image"
 
-import SEO from "./seo"
+import Seo from "./seo"
 import Posts from "./posts"
 import ArrowIcon from "../images/svgs/arrow-down-regular.svg"
 
@@ -140,7 +140,7 @@ const Welcome = () => {
 
   return (
     <div>
-      <SEO title="Home" />
+      <Seo title="Home" />
       <BackgroundImage
         tag="section"
         fluid={imageData}

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import Welcome from "../components/welcome"
 
-export default () => {
+const Index = () => {
   const [isOnHomePage, setIsOnHomePage] = useState(false)
   useEffect(() => {
     setIsOnHomePage(window.location.pathname === "/")
@@ -12,8 +12,10 @@ export default () => {
 
   return (
     <Layout isOnHomePage={isOnHomePage}>
-      <SEO title="Home" />
+      <Seo title="Home" />
       <Welcome />
     </Layout>
   )
 }
+
+export default Index

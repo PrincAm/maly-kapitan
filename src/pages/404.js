@@ -1,34 +1,23 @@
 import React from "react"
-import Img from "gatsby-image"
-import { graphql, useStaticQuery } from "gatsby"
+import {StaticImage} from 'gatsby-plugin-image';
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 
-const NotFoundPage = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      image: file(relativePath: { eq: "captain_sleeping.jpg" }) {
-        childImageSharp {
-          resolutions(width: 400, height: 400) {
-            ...GatsbyImageSharpResolutions_withWebp_tracedSVG
-          }
-        }
-      }
-    }
-  `)
-
-  return (
+const NotFoundPage = () => (
     <Layout>
-      <SEO title="404: Not found" />
-      <h1>404 NENALEZENO</h1>
-      <p>Hledáte stránku, která neexistuje :(</p>
-      <Img
-        resolutions={data.image.childImageSharp.resolutions}
-        key={data.image.childImageSharp.resolutions.src}
-      />
+        <Seo title="404: Not found"/>
+        <h1>404 NENALEZENO</h1>
+        <p>Hledáte stránku, která neexistuje :(</p>
+        <StaticImage
+            src="../images/captain_sleeping.jpg"
+            alt="laying dog"
+            placeholder="blurred"
+            layout="fixed"
+            height={400}
+        />
+
     </Layout>
-  )
-}
+)
 
 export default NotFoundPage

@@ -12,25 +12,13 @@ module.exports = {
   plugins: [
     "gatsby-plugin-netlify-cache",
     "gatsby-plugin-styled-components",
+    'gatsby-plugin-image',
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        baseUrl: `307424.w24.wedos.ws/data`,
-        protocol: `http`,
-        hostingWPCOM: false,
-        useACF: true,
-        plugins: [
-          {
-            resolve: `gatsby-wordpress-inline-images`,
-            options: {
-              baseUrl: `307424.w24.wedos.ws/data`,
-              protocol: `http`,
-              quality: 90,
-              maxWidth: 550,
-              tracedSVG: true,
-            },
-          },
-        ],
+        // the only required plugin option for WordPress is the GraphQL url.
+        url:
+            process.env.WPGRAPHQL_URL,
       },
     },
     {
